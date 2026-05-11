@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avianca Cargo — Productos Perecederos | Product Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #2C2C2C;
+            background: #FFFFFF;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #C8102E 0%, #A00D25 100%);
+            color: white;
+            padding: 50px 40px;
+            margin: -40px -30px 40px -30px;
+            border-bottom: 5px solid #8B0A1F;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-size: 32pt;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-text p {
+            font-size: 12pt;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 10pt;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* NAVIGATION TABS */
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #E0E0E0;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 14px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 11pt;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            color: #C8102E;
+            background: #F8F8F8;
+        }
+
+        .nav-tab.active {
+            color: #C8102E;
+            border-bottom-color: #C8102E;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* PRODUCT SELECTOR */
+        .product-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            border-color: #C8102E;
+            box-shadow: 0 4px 12px rgba(200,16,46,0.15);
+            transform: translateY(-2px);
+        }
+
+        .product-card.selected {
+            border-color: #C8102E;
+            background: #FFF5F6;
+            box-shadow: 0 4px 12px rgba(200,16,46,0.2);
+        }
+
+        .product-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .product-name {
+            font-size: 13pt;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 8px;
+        }
+
+        .product-shc {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .shc-badge {
+            background: #F0F0F0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .shc-badge.primary {
+            background: #C8102E;
+            color: white;
+        }
+
+        .shc-badge.temp {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 16pt;
+            font-weight: 600;
+            color: #C8102E;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #F0F0F0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: #F8F9FA;
+            border-left: 4px solid #C8102E;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            font-size: 9pt;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 13pt;
+            font-weight: 600;
+            color: #2C2C2C;
+        }
+
+        .info-note {
+            font-size: 9pt;
+            color: #999;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* ALERT BOX */
+        .alert-box {
+            background: #FFF3CD;
+            border-left: 4px solid #FFA000;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .alert-box strong {
+            color: #856404;
+            font-weight: 600;
+        }
+
+        /* TABLE STYLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: #F5F5F5;
+        }
+
+        th {
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #F0F0F0;
+            font-size: 10pt;
+        }
+
+        tr:hover {
+            background: #FAFAFA;
+        }
+
+        .route-cell {
+            font-weight: 600;
+            color: #C8102E;
+        }
+
+        .metric-good {
+            color: #2E7D32;
+            font-weight: 600;
+        }
+
+        .metric-warning {
+            color: #F57C00;
+            font-weight: 600;
+        }
+
+        /* SERVICE TIERS */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tier-card {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .tier-card.priority {
+            border-color: #1565C0;
+            background: #F5F9FF;
+        }
+
+        .tier-tag {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #1565C0;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .tier-name {
+            font-size: 14pt;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #2C2C2C;
+        }
+
+        .tier-features {
+            list-style: none;
+        }
+
+        .tier-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #F0F0F0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10pt;
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-label {
+            color: #666;
+        }
+
+        .feature-value {
+            font-weight: 600;
+            color: #2C2C2C;
+        }
+
+        .standby-note {
+            background: #FFEBEE;
+            border-left: 4px solid #C62828;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 10pt;
+        }
+
+        /* KPI CARDS */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .kpi-card {
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #C8102E;
+            margin-bottom: 6px;
+        }
+
+        .kpi-label {
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .kpi-status {
+            font-size: 9pt;
+            margin-top: 6px;
+        }
+
+        .kpi-status.good {
+            color: #2E7D32;
+        }
+
+        .kpi-status.warning {
+            color: #F57C00;
+        }
+
+        /* CERTIFICATIONS */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .cert-badge {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cert-logo {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .cert-name {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 4px;
+        }
+
+        .cert-station {
+            font-size: 9pt;
+            color: #666;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #F0F0F0;
+            text-align: center;
+            color: #999;
+            font-size: 9pt;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .tab-content {
+                display: block !important;
+                page-break-after: always;
+            }
+            .header {
+                margin: 0;
+                page-break-after: avoid;
+            }
+        }
+
+        /* MOP JOURNEY STYLES */
+        .mop-phases {
+            display: flex;
+            overflow-x: auto;
+            gap: 0;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            background: white;
+        }
+
+        .mop-phase-btn {
+            flex: 0 0 auto;
+            min-width: 140px;
+            padding: 16px 12px;
+            border: none;
+            background: none;
+            border-right: 1px solid #E0E0E0;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .mop-phase-btn:last-child {
+            border-right: none;
+        }
+
+        .mop-phase-btn:hover {
+            background: #F8F8F8;
+        }
+
+        .mop-phase-btn.active {
+            background: #E3F2FD;
+        }
+
+        .mop-phase-group {
+            font-size: 8pt;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .mop-phase-number {
+            font-size: 9pt;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .mop-phase-name {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2C2C2C;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .mop-phase-btn.active .mop-phase-name {
+            color: #1565C0;
+        }
+
+        .mop-layer-tag {
+            font-size: 8pt;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .layer-revenue { background: #E3F2FD; color: #1565C0; }
+        .layer-warehouse { background: #E8F5E9; color: #2E7D32; }
+        .layer-ramp { background: #FFF3E0; color: #EF6C00; }
+        .layer-aircraft { background: #F3E5F5; color: #7B1FA2; }
+
+        .phase-detail {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .phase-header {
+            margin-bottom: 24px;
+        }
+
+        .phase-title-main {
+            font-size: 16pt;
+            font-weight: 600;
+            color: #C8102E;
+            margin-bottom: 8px;
+        }
+
+        .phase-subtitle {
+            font-size: 11pt;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .pillar-card {
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .pillar-process { background: #E8F5E9; }
+        .pillar-people { background: #F3E5F5; }
+        .pillar-systems { background: #E3F2FD; }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .pillar-icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .icon-process { background: #2E7D32; }
+        .icon-people { background: #7B1FA2; }
+        .icon-systems { background: #1565C0; }
+
+        .pillar-title {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #2C2C2C;
+        }
+
+        .pillar-items {
+            list-style: none;
+        }
+
+        .pillar-items li {
+            padding: 6px 0;
+            font-size: 10pt;
+            color: #555;
+            line-height: 1.5;
+            display: flex;
+            gap: 8px;
+        }
+
+        .pillar-items li::before {
+            content: "→";
+            color: #999;
+            flex-shrink: 0;
+        }
+
+        .monitoring-box {
+            background: #FFF3E0;
+            border-left: 4px solid #EF6C00;
+            padding: 18px 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .monitoring-title {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #E65100;
+            margin-bottom: 8px;
+        }
+
+        .monitoring-desc {
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .product-diff-box {
+            background: #E8F5E9;
+            border-left: 4px solid #2E7D32;
+            padding: 18px 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .product-diff-title {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1B5E20;
+            margin-bottom: 8px;
+        }
+
+        .product-diff-items {
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .product-selector {
+                grid-template-columns: 1fr;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .tier-grid {
+                grid-template-columns: 1fr;
+            }
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pillar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-icon">🌱</div>
+            <div class="header-text">
+                <h1>Productos Perecederos</h1>
+                <p>Flores, Frutas & Verduras, Pescados & Mariscos</p>
+                <div class="badges">
+                    <span class="badge">IATA PCR 25th Ed. (2026)</span>
+                    <span class="badge">Cargo iQ MOP v3.4</span>
+                    <span class="badge">CEIV Fresh Certified</span>
+                    <span class="badge">Datos 2025 (YTD)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">Resumen General</button>
+            <button class="nav-tab" onclick="showTab('subproducts')">Sub-productos</button>
+            <button class="nav-tab" onclick="showTab('tiers')">Tiers de Servicio</button>
+            <button class="nav-tab" onclick="showTab('journey')">Journey Operacional (MOP)</button>
+            <button class="nav-tab" onclick="showTab('execution')">Datos de Ejecución 2025</button>
+            <button class="nav-tab" onclick="showTab('standards')">Estándares & Certificaciones</button>
+        </div>
+
+        <!-- TAB: OVERVIEW -->
+        <div id="overview" class="tab-content active">
+            <div class="section">
+                <h2 class="section-title">Visión General del Portafolio PER</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">Volumen Total 2025 (YTD)</div>
+                        <div class="info-value">442,473 tons</div>
+                        <div class="info-note">144,349 embarques</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Peso Promedio</div>
+                        <div class="info-value">3,065 kg</div>
+                        <div class="info-note">Por embarque</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Sub-productos Activos</div>
+                        <div class="info-value">3 principales</div>
+                        <div class="info-note">PEF, PEP, PES</div>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <strong>⚠ Importante:</strong> Stand By NO aplica a ningún sub-producto perecedero. El tiempo de espera de hasta 3 días es incompatible con la vida útil de PEF, PEP y PES según IATA PCR 25th Edition.
+                </div>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Distribución de Volumen por Sub-producto</h3>
+                
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-value">44.1%</div>
+                        <div class="kpi-label">PEF — Flores</div>
+                        <div class="kpi-status good">195,065 tons</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">9.0%</div>
+                        <div class="kpi-label">PES — Pescado</div>
+                        <div class="kpi-status good">39,903 tons</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">6.0%</div>
+                        <div class="kpi-label">PEP — Frutas</div>
+                        <div class="kpi-status good">26,416 tons</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">37.7%</div>
+                        <div class="kpi-label">PER — General</div>
+                        <div class="kpi-status">166,866 tons</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Códigos IATA SHC por Sub-producto</h3>
+                <p style="margin-bottom: 20px; color: #666;">Los Special Handling Codes (SHC) estandarizan el manejo y aseguran el cumplimiento de los requisitos IATA PCR.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código SHC</th>
+                            <th>Descripción IATA</th>
+                            <th>Aplicación</th>
+                            <th>Temp. Requerida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color: #C8102E;">PEF</strong></td>
+                            <td>Flowers (Flores)</td>
+                            <td>Flores de corte, plantas ornamentales, follaje</td>
+                            <td>+2°C a +8°C</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #C8102E;">PEP</strong></td>
+                            <td>Fruits and Vegetables (Frutas y Verduras)</td>
+                            <td>Frutas frescas, verduras, hortalizas</td>
+                            <td>+2°C a +12°C</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #C8102E;">PES</strong></td>
+                            <td>Fish/Seafood (Pescado/Mariscos)</td>
+                            <td>Pescado fresco, mariscos, productos del mar</td>
+                            <td>0°C a +4°C (fresco)<br>-18°C (frozen)</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #1565C0;">COL</strong></td>
+                            <td>Cool Goods</td>
+                            <td>Carga refrigerada 2-8°C</td>
+                            <td>+2°C a +8°C</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #1565C0;">CRT</strong></td>
+                            <td>Controlled Room Temperature</td>
+                            <td>Temperatura ambiente controlada</td>
+                            <td>+15°C a +25°C</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #1565C0;">FRO</strong></td>
+                            <td>Frozen Goods</td>
+                            <td>Productos congelados</td>
+                            <td>-18°C o inferior</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #1565C0;">WET</strong></td>
+                            <td>Wet Cargo (mandatory label)</td>
+                            <td>Embalaje impermeable obligatorio (PES)</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB: SUBPRODUCTS -->
+        <div id="subproducts" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Selecciona un Sub-producto para Ver Detalles</h2>
+                
+                <div class="product-selector">
+                    <div class="product-card selected" onclick="selectProduct('flores')">
+                        <div class="product-icon">🌸</div>
+                        <div class="product-name">Flores & Plantas</div>
+                        <p style="font-size: 9pt; color: #666; margin: 8px 0;">Flores de corte, ornamentales, follaje</p>
+                        <div class="product-shc">
+                            <span class="shc-badge primary">PEF</span>
+                            <span class="shc-badge temp">COL</span>
+                            <span class="shc-badge">PER</span>
+                        </div>
+                    </div>
+                    <div class="product-card" onclick="selectProduct('frutas')">
+                        <div class="product-icon">🍓</div>
+                        <div class="product-name">Frutas & Verduras</div>
+                        <p style="font-size: 9pt; color: #666; margin: 8px 0;">Frutas frescas, verduras, hortalizas</p>
+                        <div class="product-shc">
+                            <span class="shc-badge primary">PEP</span>
+                            <span class="shc-badge temp">COL</span>
+                            <span class="shc-badge">FRO</span>
+                        </div>
+                    </div>
+                    <div class="product-card" onclick="selectProduct('pescado')">
+                        <div class="product-icon">🐟</div>
+                        <div class="product-name">Pescados & Mariscos</div>
+                        <p style="font-size: 9pt; color: #666; margin: 8px 0;">Pescado fresco/congelado, mariscos</p>
+                        <div class="product-shc">
+                            <span class="shc-badge primary">PES</span>
+                            <span class="shc-badge temp">COL</span>
+                            <span class="shc-badge">FRO</span>
+                            <span class="shc-badge">WET</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLORES DETAIL -->
+                <div id="product-flores" class="product-detail">
+                    <h3 style="font-size: 16pt; font-weight: 600; color: #C8102E; margin-bottom: 20px;">🌸 PEF — Flores & Plantas Ornamentales</h3>
+                    
+                    <div class="alert-box" style="background: #E8F5E9; border-color: #2E7D32;">
+                        <strong>⚠ Cuidado Diferencial:</strong> Las flores tropicales (heliconias, anturios) requieren temperatura mínima +10°C a +15°C — NO pueden almacenarse en el mismo cuarto frío que rosas o claveles (+2°C a +4°C). Segregación por especie es mandatoria en el build-up. Son sensibles al etileno — deben segregarse de frutas.
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Atributos de Cuidado Específicos</h4>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-label">Temperatura</div>
+                            <div class="info-value">+2°C a +8°C</div>
+                            <div class="info-note">Rosas: +1°C a +4°C | Tropicales: +10°C a +15°C</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Humedad Relativa</div>
+                            <div class="info-value">90–95% HR</div>
+                            <div class="info-note">Pérdida >5% HR = marchitamiento prematuro</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Tiempo Máx. en Tierra</div>
+                            <div class="info-value">3 horas</div>
+                            <div class="info-note">SLA Priority Avianca</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Etileno</div>
+                            <div class="info-value">Segregación total</div>
+                            <div class="info-note">No mezclar con frutas maduras emisoras</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Ventilación ULD</div>
+                            <div class="info-value">Activa — obligatoria</div>
+                            <div class="info-note">IATA ULD Regulations</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Vida Útil</div>
+                            <div class="info-value">5–14 días</div>
+                            <div class="info-note">Rosas <7d | Tropicales hasta 14d</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Ejecución 2025 — PEF Flores</h4>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-value">195,065</div>
+                            <div class="kpi-label">Toneladas</div>
+                            <div class="kpi-status good">44% del total PER</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">53,217</div>
+                            <div class="kpi-label">Embarques</div>
+                            <div class="kpi-status good">Avg. 3,666 kg</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">6.4%</div>
+                            <div class="kpi-label">Con COL (2-8°C)</div>
+                            <div class="kpi-status">3,388 embarques</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">93.8%</div>
+                            <div class="kpi-label">Velocidad Otros</div>
+                            <div class="kpi-status">6.2% STD</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Top 5 Rutas PEF (2025)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ruta</th>
+                                <th>Volumen (tons)</th>
+                                <th>Embarques</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="route-cell">BOG-MIA</td>
+                                <td>72,241</td>
+                                <td>15,383</td>
+                                <td>37.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">MDE-MIA</td>
+                                <td>52,746</td>
+                                <td>12,022</td>
+                                <td>27.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">UIO-MIA</td>
+                                <td>30,214</td>
+                                <td>8,928</td>
+                                <td>15.5%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">UIO-AMS</td>
+                                <td>10,351</td>
+                                <td>4,386</td>
+                                <td>5.3%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">BOG-LAX</td>
+                                <td>7,398</td>
+                                <td>1,576</td>
+                                <td>3.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Top 5 Clientes PEF (2025)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Volumen (tons)</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EXPORTACIONES INTERNACIONALES DE CARGA SA</td>
+                                <td>64,977</td>
+                                <td>33.3%</td>
+                            </tr>
+                            <tr>
+                                <td>KUEHNE & NAGEL</td>
+                                <td>37,980</td>
+                                <td>19.5%</td>
+                            </tr>
+                            <tr>
+                                <td>OPERFLO LOGISTICA SAS</td>
+                                <td>18,593</td>
+                                <td>9.5%</td>
+                            </tr>
+                            <tr>
+                                <td>DSV</td>
+                                <td>11,761</td>
+                                <td>6.0%</td>
+                            </tr>
+                            <tr>
+                                <td>FLOWERCARGO SA</td>
+                                <td>11,614</td>
+                                <td>6.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FRUTAS DETAIL -->
+                <div id="product-frutas" class="product-detail" style="display: none;">
+                    <h3 style="font-size: 16pt; font-weight: 600; color: #C8102E; margin-bottom: 20px;">🍓 PEP — Frutas & Verduras Frescas</h3>
+                    
+                    <div class="alert-box" style="background: #E8F5E9; border-color: #2E7D32;">
+                        <strong>⚠ Cuidado Diferencial:</strong> Las frutas y verduras son emisoras activas de etileno y calor (respiración celular). Deben segregarse de flores y productos etileno-sensibles. Los frozen (FRO/FRI) requieren cadena de frío a -18°C y manejo como wet cargo con embalaje impermeable.
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Atributos de Cuidado Específicos</h4>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-label">Temperatura</div>
+                            <div class="info-value">+2°C a +12°C</div>
+                            <div class="info-note">Berries: 0°C | Mangos: +10°C | Cítricos: amplio rango</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Humedad Relativa</div>
+                            <div class="info-value">85–95% HR</div>
+                            <div class="info-note">Verduras de hoja: 95–98% HR</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Tiempo Máx. en Tierra</div>
+                            <div class="info-value">4 horas</div>
+                            <div class="info-note">SLA Standard Avianca</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Etileno</div>
+                            <div class="info-value">Emisores activos</div>
+                            <div class="info-note">Segregar de flores y productos sensibles</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Ventilación ULD</div>
+                            <div class="info-value">Activa — requerida</div>
+                            <div class="info-note">Respiración celular genera CO₂ y calor</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Vida Útil</div>
+                            <div class="info-value">5–30 días</div>
+                            <div class="info-note">Berries 5-7d | Cítricos hasta 30d</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Ejecución 2025 — PEP Frutas</h4>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-value">26,416</div>
+                            <div class="kpi-label">Toneladas</div>
+                            <div class="kpi-status good">6% del total PER</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">11,929</div>
+                            <div class="kpi-label">Embarques</div>
+                            <div class="kpi-status good">Avg. 2,214 kg</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">12.7%</div>
+                            <div class="kpi-label">Con COL (2-8°C)</div>
+                            <div class="kpi-status">1,510 embarques</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">95.2%</div>
+                            <div class="kpi-label">Velocidad Otros</div>
+                            <div class="kpi-status">4.8% STD</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Top 5 Rutas PEP (2025)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ruta</th>
+                                <th>Volumen (tons)</th>
+                                <th>Embarques</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="route-cell">UIO-MIA</td>
+                                <td>6,245</td>
+                                <td>2,570</td>
+                                <td>23.6%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">SCL-MIA</td>
+                                <td>3,318</td>
+                                <td>760</td>
+                                <td>12.6%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">LIM-MIA</td>
+                                <td>2,256</td>
+                                <td>418</td>
+                                <td>8.5%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">BOG-MAD</td>
+                                <td>1,911</td>
+                                <td>1,584</td>
+                                <td>7.2%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">BOG-CDG</td>
+                                <td>1,551</td>
+                                <td>868</td>
+                                <td>5.9%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Top 5 Clientes PEP (2025)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Volumen (tons)</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DAVILA Y CURRILLO EXPORTACIONES</td>
+                                <td>4,521</td>
+                                <td>17.1%</td>
+                            </tr>
+                            <tr>
+                                <td>INTERLINEO - CATHAY PACIFIC</td>
+                                <td>2,593</td>
+                                <td>9.8%</td>
+                            </tr>
+                            <tr>
+                                <td>KUEHNE & NAGEL</td>
+                                <td>1,933</td>
+                                <td>7.3%</td>
+                            </tr>
+                            <tr>
+                                <td>CEVA</td>
+                                <td>1,682</td>
+                                <td>6.4%</td>
+                            </tr>
+                            <tr>
+                                <td>INTERLINEO - IBERIA</td>
+                                <td>1,295</td>
+                                <td>4.9%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PESCADO DETAIL -->
+                <div id="product-pescado" class="product-detail" style="display: none;">
+                    <h3 style="font-size: 16pt; font-weight: 600; color: #C8102E; margin-bottom: 20px;">🐟 PES — Pescados & Mariscos</h3>
+                    
+                    <div class="alert-box" style="background: #E3F2FD; border-color: #1565C0;">
+                        <strong>⚠ Cuidado Diferencial:</strong> Pescados y mariscos son el sub-producto de mayor riesgo. El fresco requiere temperatura 0°C–+2°C y tiempo en tierra máx. 2h. Es wet cargo obligatorio — cualquier escurrimiento contamina otros embarques. Segregación total de flores y frutas es mandatoria. Requiere inspección sanitaria en destino (USDA, APHIS o equivalente).
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Atributos de Cuidado Específicos</h4>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-label">Temperatura (Fresco)</div>
+                            <div class="info-value">0°C a +4°C</div>
+                            <div class="info-note">Salmón fresco: 0°C a +2°C — crítico</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Temperatura (Frozen)</div>
+                            <div class="info-value">-18°C o inferior</div>
+                            <div class="info-note">Cadena de frío continua, sin interrupciones</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Tiempo Máx. en Tierra</div>
+                            <div class="info-value">2 horas</div>
+                            <div class="info-note">SLA Priority Avianca — producto más crítico</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Wet Cargo</div>
+                            <div class="info-value">Obligatorio</div>
+                            <div class="info-note">Doble bolsa + caja impermeable. Sin escurrimientos</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Ventilación ULD</div>
+                            <div class="info-value">Activa — obligatoria</div>
+                            <div class="info-note">Olor: segregar de otros perecederos</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Vida Útil (Fresco)</div>
+                            <div class="info-value">2–5 días</div>
+                            <div class="info-note">Salmón fresco: máx. 3 días desde cosecha</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Ejecución 2025 — PES Pescado</h4>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-value">39,903</div>
+                            <div class="kpi-label">Toneladas</div>
+                            <div class="kpi-status good">9% del total PER</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">12,010</div>
+                            <div class="kpi-label">Embarques</div>
+                            <div class="kpi-status good">Avg. 3,323 kg</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">64.6%</div>
+                            <div class="kpi-label">Con COL (2-8°C)</div>
+                            <div class="kpi-status good">7,760 embarques — el más refrigerado</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-value">27.1%</div>
+                            <div class="kpi-label">Velocidad STD</div>
+                            <div class="kpi-status">Mayor uso STD vs otros productos</div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Top 5 Rutas PES (2025)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ruta</th>
+                                <th>Volumen (tons)</th>
+                                <th>Embarques</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="route-cell">SCL-MIA</td>
+                                <td>21,551</td>
+                                <td>5,698</td>
+                                <td>54.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">BOG-MIA</td>
+                                <td>8,492</td>
+                                <td>1,708</td>
+                                <td>21.3%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">EZE-MIA</td>
+                                <td>4,661</td>
+                                <td>1,136</td>
+                                <td>11.7%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">GYE-MIA</td>
+                                <td>803</td>
+                                <td>690</td>
+                                <td>2.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="route-cell">SCL-BOG</td>
+                                <td>547</td>
+                                <td>186</td>
+                                <td>1.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Top 5 Clientes PES (2025)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Volumen (tons)</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>NEWPORT CARGO S A</td>
+                                <td>5,996</td>
+                                <td>15.0%</td>
+                            </tr>
+                            <tr>
+                                <td>VIC VALCARGO INTERNACIONAL LTDA</td>
+                                <td>4,308</td>
+                                <td>10.8%</td>
+                            </tr>
+                            <tr>
+                                <td>INTERMODAL LOGISTICS SERVICES SA</td>
+                                <td>4,130</td>
+                                <td>10.4%</td>
+                            </tr>
+                            <tr>
+                                <td>ACOSTA & AGUAYO SA</td>
+                                <td>4,035</td>
+                                <td>10.1%</td>
+                            </tr>
+                            <tr>
+                                <td>KUEHNE & NAGEL</td>
+                                <td>3,921</td>
+                                <td>9.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: TIERS -->
+        <div id="tiers" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Tiers de Servicio Aplicables a PER</h2>
+                
+                <div class="tier-grid">
+                    <div class="tier-card priority">
+                        <span class="tier-tag">Recomendado PER</span>
+                        <div class="tier-name">Priority</div>
+                        <ul class="tier-features">
+                            <li>
+                                <span class="feature-label">Espacio frío</span>
+                                <span class="feature-value" style="color: #1565C0;">Garantizado</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Tiempo en tierra</span>
+                                <span class="feature-value" style="color: #1565C0;">PES: ≤2h | PEF: ≤3h</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Monitoreo temperatura</span>
+                                <span class="feature-value" style="color: #1565C0;">Continuo</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Secuencia de carga</span>
+                                <span class="feature-value" style="color: #1565C0;">First-in, last-out</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">ULD ventilado</span>
+                                <span class="feature-value" style="color: #1565C0;">Garantizado</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Soporte cliente</span>
+                                <span class="feature-value" style="color: #1565C0;">Proactivo</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Compensación</span>
+                                <span class="feature-value" style="color: #1565C0;">Aplica por incumplimiento</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-name">Standard</div>
+                        <ul class="tier-features">
+                            <li>
+                                <span class="feature-label">Espacio frío</span>
+                                <span class="feature-value">Según disponibilidad</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Tiempo en tierra</span>
+                                <span class="feature-value">≤4h objetivo</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Monitoreo temperatura</span>
+                                <span class="feature-value">Por fase MOP</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Secuencia de carga</span>
+                                <span class="feature-value">Estándar</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">ULD ventilado</span>
+                                <span class="feature-value">Según disponibilidad</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Soporte cliente</span>
+                                <span class="feature-value">Reactivo</span>
+                            </li>
+                            <li>
+                                <span class="feature-label">Compensación</span>
+                                <span class="feature-value">No aplica</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="standby-note">
+                    <strong>⚠️ Stand By NO aplica a productos perecederos</strong><br>
+                    El tier Stand By permite un tiempo de espera de hasta 3 días antes del vuelo. Este modelo es incompatible con la vida útil de productos perecederos (PEF: 5-14 días, PEP: 5-30 días, PES: 2-5 días). Según IATA PCR 25th Edition, los perecederos requieren embarque inmediato o en el primer vuelo disponible para preservar su integridad.
+                </div>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Comparativa de SLAs por Sub-producto</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sub-producto</th>
+                            <th>Priority - Tiempo en Tierra</th>
+                            <th>Standard - Tiempo en Tierra</th>
+                            <th>Justificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PES — Pescado</strong></td>
+                            <td class="metric-good">≤ 2 horas</td>
+                            <td>≤ 3 horas objetivo</td>
+                            <td>Producto más crítico. Requiere 0°C-+2°C continuo. Wet cargo.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PEF — Flores</strong></td>
+                            <td class="metric-good">≤ 3 horas</td>
+                            <td>≤ 4 horas objetivo</td>
+                            <td>Alta sensibilidad al etileno. Requiere segregación por especie.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PEP — Frutas</strong></td>
+                            <td class="metric-good">≤ 3 horas</td>
+                            <td>≤ 4 horas objetivo</td>
+                            <td>Emisores activos de etileno. Mayor tolerancia que PES/PEF.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB: JOURNEY -->
+        <div id="journey" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Journey Operacional — Cargo iQ MOP v3.4</h2>
+                
+                <p style="margin-bottom: 20px; color: #666;">El Master Operating Plan (MOP) define 19 procesos principales en el ciclo de vida de la carga aérea. Para perecederos, los procesos críticos del carrier (P07-P15) están diferenciados por sub-producto según los requisitos de cada SHC.</p>
+
+                <div class="alert-box" style="background: #E3F2FD; border-color: #1565C0;">
+                    <strong>🔄 Clasificación por Capa Operacional:</strong> 
+                    <span class="mop-layer-tag layer-revenue">Revenue/Network</span>
+                    <span class="mop-layer-tag layer-warehouse">Bodega</span>
+                    <span class="mop-layer-tag layer-ramp">Rampa</span>
+                    <span class="mop-layer-tag layer-aircraft">Aeronave</span>
+                </div>
+
+                <!-- MOP Phase Navigator -->
+                <div class="mop-phases" id="mop-navigator">
+                    <button class="mop-phase-btn active" onclick="showPhase(0)">
+                        <div class="mop-phase-group">Pre-vuelo</div>
+                        <div class="mop-phase-number">P01-P02</div>
+                        <div class="mop-phase-name">Booking & Planning</div>
+                        <span class="mop-layer-tag layer-revenue">Revenue</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(1)">
+                        <div class="mop-phase-group">Origen Carrier</div>
+                        <div class="mop-phase-number">P07</div>
+                        <div class="mop-phase-name">Recepción</div>
+                        <span class="mop-layer-tag layer-warehouse">Bodega</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(2)">
+                        <div class="mop-phase-group">Origen Carrier</div>
+                        <div class="mop-phase-number">P08</div>
+                        <div class="mop-phase-name">Aceptación & Build-up</div>
+                        <span class="mop-layer-tag layer-warehouse">Bodega</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(3)">
+                        <div class="mop-phase-group">Transporte</div>
+                        <div class="mop-phase-number">P09</div>
+                        <div class="mop-phase-name">Rampa & Embarque</div>
+                        <span class="mop-layer-tag layer-ramp">Rampa</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(4)">
+                        <div class="mop-phase-group">Transporte</div>
+                        <div class="mop-phase-number">P10-P11</div>
+                        <div class="mop-phase-name">In-flight & Tránsito</div>
+                        <span class="mop-layer-tag layer-aircraft">Aeronave</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(5)">
+                        <div class="mop-phase-group">Destino Carrier</div>
+                        <div class="mop-phase-number">P12</div>
+                        <div class="mop-phase-name">Llegada & Rampa</div>
+                        <span class="mop-layer-tag layer-ramp">Rampa</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(6)">
+                        <div class="mop-phase-group">Destino Carrier</div>
+                        <div class="mop-phase-number">P13</div>
+                        <div class="mop-phase-name">Break-down</div>
+                        <span class="mop-layer-tag layer-warehouse">Bodega</span>
+                    </button>
+                    <button class="mop-phase-btn" onclick="showPhase(7)">
+                        <div class="mop-phase-group">Destino</div>
+                        <div class="mop-phase-number">P14-P15</div>
+                        <div class="mop-phase-name">Entrega & Cierre</div>
+                        <span class="mop-layer-tag layer-warehouse">Bodega</span>
+                    </button>
+                </div>
+
+                <!-- Phase Details (dynamically populated) -->
+                <div id="phase-detail-container"></div>
+            </div>
+        </div>
+
+        <!-- TAB: EXECUTION DATA -->
+        <div id="execution" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Datos de Ejecución 2025 (YTD)</h2>
+                
+                <p style="margin-bottom: 20px; color: #666;">Análisis basado en 144,349 embarques y 442,473 toneladas transportadas durante 2025.</p>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 24px 0 16px 0;">Consolidado General</h3>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-value">442,473</div>
+                        <div class="kpi-label">Toneladas Totales</div>
+                        <div class="kpi-status good">2025 YTD</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">144,349</div>
+                        <div class="kpi-label">Total Embarques</div>
+                        <div class="kpi-status good">Todos sub-productos</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">3,065</div>
+                        <div class="kpi-label">Peso Promedio (kg)</div>
+                        <div class="kpi-status">Por embarque</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">16.2%</div>
+                        <div class="kpi-label">Con COL/CRT</div>
+                        <div class="kpi-status">23,407 embarques refrigerados</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Top 10 Rutas Consolidadas PER</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ruta</th>
+                            <th>Embarques</th>
+                            <th>Volumen (tons)</th>
+                            <th>Peso Avg. (kg)</th>
+                            <th>Producto Dominante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="route-cell">BOG-MIA</td>
+                            <td>31,104</td>
+                            <td>~80,733</td>
+                            <td>2,595</td>
+                            <td>PEF (89.5%)</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">MDE-MIA</td>
+                            <td>20,876</td>
+                            <td>~52,746</td>
+                            <td>2,526</td>
+                            <td>PEF (100%)</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">UIO-MIA</td>
+                            <td>18,218</td>
+                            <td>~36,459</td>
+                            <td>2,001</td>
+                            <td>PEF (82.9%)</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">SCL-MIA</td>
+                            <td>7,172</td>
+                            <td>~24,869</td>
+                            <td>3,467</td>
+                            <td>PES (86.6%)</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">BOG-MAD</td>
+                            <td>5,008</td>
+                            <td>~1,911</td>
+                            <td>382</td>
+                            <td>PEP (100%)</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">UIO-AMS</td>
+                            <td>4,896</td>
+                            <td>~10,351</td>
+                            <td>2,114</td>
+                            <td>PEF (100%)</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">BOG-LHR</td>
+                            <td>2,954</td>
+                            <td>~2,500</td>
+                            <td>846</td>
+                            <td>Mix PER</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">GYE-JFK</td>
+                            <td>2,532</td>
+                            <td>~2,000</td>
+                            <td>790</td>
+                            <td>Mix PER</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">UIO-LAX</td>
+                            <td>2,430</td>
+                            <td>~1,950</td>
+                            <td>802</td>
+                            <td>Mix PER</td>
+                        </tr>
+                        <tr>
+                            <td class="route-cell">EZE-MIA</td>
+                            <td>1,935</td>
+                            <td>~4,661</td>
+                            <td>2,409</td>
+                            <td>PES (100%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Top 15 Clientes Consolidados PER</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Cliente</th>
+                            <th>Volumen (tons)</th>
+                            <th>Share</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>EXPORTACIONES INTERNACIONALES DE CARGA SA</td>
+                            <td>116,614</td>
+                            <td>26.4%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>KUEHNE & NAGEL</td>
+                            <td>64,730</td>
+                            <td>14.6%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>DSV</td>
+                            <td>39,167</td>
+                            <td>8.9%</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>OPERFLO LOGISTICA SAS</td>
+                            <td>18,602</td>
+                            <td>4.2%</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>FLOWERCARGO SA</td>
+                            <td>15,913</td>
+                            <td>3.6%</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>CEVA</td>
+                            <td>12,755</td>
+                            <td>2.9%</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>VIC VALCARGO INTERNACIONAL LTDA</td>
+                            <td>11,120</td>
+                            <td>2.5%</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>DAVILA Y CURRILLO EXPORTACIONES</td>
+                            <td>9,136</td>
+                            <td>2.1%</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>LOGIZTIK ALLIANCE</td>
+                            <td>9,033</td>
+                            <td>2.0%</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>AGROCARGA INTERNACIONAL LTDA</td>
+                            <td>7,997</td>
+                            <td>1.8%</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>NEWPORT CARGO S A</td>
+                            <td>7,148</td>
+                            <td>1.6%</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>INTERLINEO - CATHAY PACIFIC</td>
+                            <td>6,350</td>
+                            <td>1.4%</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>LOGIZTIK ALLIANCE GROUP SAS</td>
+                            <td>6,266</td>
+                            <td>1.4%</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>DHL GLOBAL FORWARDING</td>
+                            <td>6,020</td>
+                            <td>1.4%</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>INTERMODAL LOGISTICS SERVICES SA</td>
+                            <td>5,634</td>
+                            <td>1.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Distribución de Temperatura por Sub-producto</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sub-producto</th>
+                            <th>COL (2-8°C)</th>
+                            <th>CRT (15-25°C)</th>
+                            <th>Sin especificación</th>
+                            <th>Conclusión</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PES — Pescado</strong></td>
+                            <td class="metric-good">64.6% (7,760)</td>
+                            <td>0.0% (4)</td>
+                            <td>35.4%</td>
+                            <td>Más refrigerado — cadena de frío crítica</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PEP — Frutas</strong></td>
+                            <td>12.7% (1,510)</td>
+                            <td>1.0% (120)</td>
+                            <td>86.3%</td>
+                            <td>Mix variable — depende de especie</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PEF — Flores</strong></td>
+                            <td>6.4% (3,388)</td>
+                            <td>0.1% (50)</td>
+                            <td>93.5%</td>
+                            <td>Mayoría ambiente controlado sin especificación estricta</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 20px; color: #666; font-size: 10pt;"><strong>Nota:</strong> "Sin especificación" no significa que no se controle la temperatura, sino que el SHC COL o CRT no fue incluido explícitamente en el AWB. Muchos embarques viajan en ambiente controlado sin etiquetado formal.</p>
+            </div>
+        </div>
+
+        <!-- TAB: STANDARDS -->
+        <div id="standards" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Estándares y Certificaciones</h2>
+                
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 24px 0 16px 0;">Certificaciones CEIV Fresh Vigentes</h3>
+                <div class="cert-grid">
+                    <div class="cert-badge">
+                        <div class="cert-logo">✓</div>
+                        <div class="cert-name">BOG</div>
+                        <div class="cert-station">Sep 2022</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-logo">✓</div>
+                        <div class="cert-name">MDE</div>
+                        <div class="cert-station">Sep 2022</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-logo">✓</div>
+                        <div class="cert-name">MIA</div>
+                        <div class="cert-station">Sep 2022</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-logo">✓</div>
+                        <div class="cert-name">UIO</div>
+                        <div class="cert-station">Nov 2022</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-logo">✓</div>
+                        <div class="cert-name">SCL</div>
+                        <div class="cert-station">Mayo 2023</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Referencias Normativas</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Estándar</th>
+                            <th>Versión</th>
+                            <th>Aplicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>IATA Perishable Cargo Regulations (PCR)</strong></td>
+                            <td>25th Edition (2026)</td>
+                            <td>Manual de referencia para requisitos de temperatura, empaque, etiquetado y handling por commodity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IATA Cargo iQ MOP</strong></td>
+                            <td>v3.4</td>
+                            <td>Master Operating Plan — 19 procesos principales, carrier processes P07-P15</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IATA CEIV Fresh</strong></td>
+                            <td>Current Standard</td>
+                            <td>Certificación de instalaciones y procesos para manejo de perecederos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IATA Special Handling Codes</strong></td>
+                            <td>Cargo IMP Manual</td>
+                            <td>Códigos estandarizados: PEF, PEP, PES, COL, CRT, FRO, FRI, WET</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Documentación Requerida por Sub-producto</h3>
+                
+                <h4 style="font-size: 11pt; font-weight: 600; margin: 20px 0 10px 0;">PEF — Flores</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>AWB / e-AWB con SHC: PEF, COL (si aplica)</li>
+                    <li>Certificado fitosanitario del país de origen</li>
+                    <li>Packing list con detalle de especies</li>
+                    <li>Cool chain declaration (declaración de temperatura requerida)</li>
+                    <li>Certificado SENASA / ICA (Colombia) o equivalente</li>
+                    <li>Data logger report (para Priority)</li>
+                    <li>ORA - Operations Requirements Amendment (ICHM 2024)</li>
+                </ul>
+
+                <h4 style="font-size: 11pt; font-weight: 600; margin: 20px 0 10px 0;">PEP — Frutas y Verduras</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>AWB / e-AWB con SHC: PEP, COL (si aplica), FRO/FRI (si congelado)</li>
+                    <li>Certificado fitosanitario del país de origen</li>
+                    <li>Packing list con detalle de especies y peso neto</li>
+                    <li>Cool chain declaration</li>
+                    <li>Certificado SENASA / SENASAG / SAG según origen</li>
+                    <li>Data logger report (para Priority)</li>
+                    <li>ORA (ICHM 2024)</li>
+                    <li>Certificado de origen (si aplica para preferencias arancelarias)</li>
+                </ul>
+
+                <h4 style="font-size: 11pt; font-weight: 600; margin: 20px 0 10px 0;">PES — Pescados y Mariscos</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>AWB / e-AWB con SHC: PES, COL (fresco), FRO/FRI (congelado), WET (obligatorio)</li>
+                    <li>Certificado sanitario / veterinario del país de origen</li>
+                    <li>Health certificate (USDA, APHIS o equivalente para destino)</li>
+                    <li>Packing list con detalle de especies y peso neto</li>
+                    <li>Cool chain declaration con temperatura específica</li>
+                    <li>WET declaration (embalaje impermeable certificado)</li>
+                    <li>Data logger report (obligatorio Priority PES)</li>
+                    <li>ORA (ICHM 2024)</li>
+                    <li>HACCP certification del shipper (si aplica)</li>
+                </ul>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Flota y Capacidad</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aeronave</th>
+                            <th>Capacidad Frío</th>
+                            <th>Tipo de Control</th>
+                            <th>Rutas Principales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A330F / A330 P2F</strong></td>
+                            <td>Full cargo hold refrigerado</td>
+                            <td>Activo — temperatura controlada continua</td>
+                            <td>BOG-MIA, SCL-MIA, UIO-MIA, BOG-MAD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Passenger flights (belly)</strong></td>
+                            <td>Lower deck compartments</td>
+                            <td>Pasivo — temperatura ambiente controlada</td>
+                            <td>Red completa Avianca</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Alianzas Estratégicas</h3>
+                <div style="background: #F8F9FA; padding: 20px; border-radius: 8px; margin-top: 16px;">
+                    <p style="margin-bottom: 12px;"><strong>Amazon Air Cargo Partnership</strong></p>
+                    <p style="color: #666; font-size: 10pt;">Expansión de capacidad refrigerada en rutas BOG-MIA y UIO-MIA. Acceso a red de distribución de última milla para perecederos en destinos US.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>Avianca Cargo — Productos Perecederos | Product Sheet v1.1</p>
+            <p style="margin-top: 8px;">Última actualización: Mayo 2026 | Datos 2025 YTD (144,349 embarques, 442,473 tons)</p>
+            <p style="margin-top: 8px;">© 2026 Avianca Cargo. Todos los derechos reservados.</p>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Product Selection
+        function selectProduct(productId) {
+            // Update card selection
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+
+            // Hide all product details
+            document.querySelectorAll('.product-detail').forEach(detail => {
+                detail.style.display = 'none';
+            });
+
+            // Show selected product detail
+            document.getElementById('product-' + productId).style.display = 'block';
+        }
+
+        // MOP Phase Data
+        const mopPhases = [
+            {
+                title: "P01-P02 · Booking & Planning",
+                subtitle: "Confirmación de espacio frío y validación de ruta según shelf life del sub-producto.",
+                monitoring: {
+                    title: "Monitoreo: Capacidad fría disponible por vuelo y origen",
+                    desc: "Yield management diferencia capacidad por SHC. PEF y PES tienen prioridad de asignación sobre PEP en ventanas de alta demanda. Dashboard Revenue muestra ocupación de bodegas frías por sub-producto."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Shelf life ≤24h tránsito — vuelo directo obligatorio Priority. Ruta SCL-MIA es la más crítica (54% del volumen PES).",
+                        "<strong>PEF (Flores):</strong> Shelf life ≤48h tránsito. Temporadas pico (San Valentín, Día de la Madre, Navidad) requieren pre-asignación de capacidad.",
+                        "<strong>PEP (Frutas):</strong> Mayor flexibilidad de routing. Acepta 1-2 escalas según tipo de fruta. Berries más críticos que cítricos."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Booking diferenciado por SHC: PEF / PEP / PES en el AWB",
+                        "Validar ruta según shelf life: PES ≤24h, PEF ≤48h, PEP flexible",
+                        "Confirmar disponibilidad cuarto frío con T° correcta por sub-producto",
+                        "Crear routemap Cargo iQ con milestones BKD, RMI, RMP"
+                    ],
+                    people: [
+                        "Revenue Manager: asigna capacidad diferenciada por SHC y tier",
+                        "Network Planner: valida que la ruta cumpla shelf life",
+                        "Sales/Account Manager: gestiona SPA con exportadores"
+                    ],
+                    systems: [
+                        "CRS: bloqueo de capacidad fría separada por SHC",
+                        "Cargo iQ: routemap A2A con shelf life constraint",
+                        "Portal cliente: SHC confirmado visible en booking"
+                    ]
+                }
+            },
+            {
+                title: "P07 · Recepción en Dominio Carrier",
+                subtitle: "Primera validación física. El SHC en el AWB determina el protocolo de recepción.",
+                monitoring: {
+                    title: "Monitoreo: Temperatura de entrega + integridad de embalaje por SHC",
+                    desc: "PES: verificar ausencia de escurrimientos (wet cargo). PEF: verificar que no haya exposición a etileno en transporte. PEP: registro T° + evaluación visual de condición. Data logger activado en todos los casos."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Inspección obligatoria de embalaje impermeable (WET). Cualquier escurrimiento = rechazo inmediato. Zona de recepción separada por olor.",
+                        "<strong>PEF (Flores):</strong> Recepción en zona sin exposición a etileno. Verificar que no lleguen con frutas maduras en el mismo transporte.",
+                        "<strong>PEP (Frutas):</strong> Emisores de etileno — segregar de PEF desde la recepción. Verificar estado visual (golpes, magulladuras)."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Verificar SHC en AWB antes de asignar zona de recepción",
+                        "PES: inspección obligatoria de embalaje impermeable",
+                        "Registrar FOH milestone en Cargo iQ + temperatura de entrada",
+                        "Activar data logger para todos los embarques Priority"
+                    ],
+                    people: [
+                        "Agente de recepción certificado CEIV Fresh con conocimiento de SHC",
+                        "Supervisor bodega perecederos diferenciado por tipo",
+                        "Inspector AVSEC + fitosanitario/sanitario según SHC"
+                    ],
+                    systems: [
+                        "CMS Cargo: apertura shipment con SHC capturado",
+                        "Data logger: inicio registro según T° target del SHC",
+                        "Alerta: rechazo automático si T° PES >+4°C o PEF >+8°C"
+                    ]
+                }
+            },
+            {
+                title: "P08 · Aceptación & Build-up",
+                subtitle: "La segregación por SHC es mandatoria. PEF, PEP y PES no pueden compartir ULD ni zona de almacenamiento.",
+                monitoring: {
+                    title: "Monitoreo: Segregación por SHC + temperatura diferenciada por zona",
+                    desc: "Cuartos fríos con zonas separadas: Zona A +2°C (PEF rosas), Zona B +8°C (PEF tropical/PEP), Zona C 0°C (PES fresco), Zona D -18°C (FRO). Sensor IoT por zona. Checklist digital incluye campo SHC obligatorio."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> ULD con bandeja colectora obligatoria. Embalaje impermeable verificado. Posición en cuarto frío 0°C (zona más fría). Segregación total de PEF y PEP.",
+                        "<strong>PEF (Flores):</strong> Flores tropicales zona +10°C–+15°C — NO mezclar con rosas/claveles. ULD ventilado garantizado Priority. Segregar de emisores de etileno (PEP).",
+                        "<strong>PEP (Frutas):</strong> Zona +8°C separada de PEF. Ventilación activa para respiración celular (genera CO₂ y calor). Segregación interna por tipo: berries ≠ mangos."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Segregar ULDs por SHC: PEF / PEP / PES en build-up separado",
+                        "Asignar zona de cuarto frío según T° requerida por SHC",
+                        "Verificar ULD ventilado antes de cerrar (obligatorio todos PER)",
+                        "Foto de segregación en checklist digital (Priority)"
+                    ],
+                    people: [
+                        "Operador bodega certificado CEIV Fresh con especialización por SHC",
+                        "Supervisor de calidad valida segregación antes de cerrar ULD",
+                        "Coordinador cuarto frío: asigna zonas de T° correctas"
+                    ],
+                    systems: [
+                        "WMS: asignación de zona diferenciada por SHC y T° requerida",
+                        "Checklist digital: campo SHC obligatorio + foto segregación",
+                        "Alerta si SHC incompatibles asignados a misma posición"
+                    ]
+                }
+            },
+            {
+                title: "P09 · Rampa & Embarque",
+                subtitle: "PES es el más crítico: máx. 30 min en rampa. PEF: protección UV. PEP: verificar etileno.",
+                monitoring: {
+                    title: "Monitoreo: Tiempo en rampa diferenciado por SHC",
+                    desc: "Timer automático al salir del cuarto frío. Umbrales: PES ≤30 min, PEF ≤30 min, PEP ≤45 min. Alerta en RAMP system si se supera umbral. Secuencia de carga: PES primero (más crítico), luego PEF, luego PEP."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Primero en carga (FIFO invertido). Máx. 30 min en rampa. Posición en hold ventilada + cercana a sistema de refrigeración. Verificar integridad de embalaje.",
+                        "<strong>PEF (Flores):</strong> Protección solar obligatoria en rampa (cubierta o sombra). Evitar exposición UV directa >15 min. Segunda prioridad en secuencia de carga.",
+                        "<strong>PEP (Frutas):</strong> Tolerancia de hasta 45 min en rampa. Tercera prioridad en carga. Verificar que no haya PEF cerca (etileno)."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Secuencia de carga: PES (primero) → PEF → PEP → carga general",
+                        "Confirmar posición en hold con ventilación activa",
+                        "PEF: protección solar obligatoria en rampa",
+                        "Timer automático desde salida de cuarto frío"
+                    ],
+                    people: [
+                        "Jefe de rampa: responsable de secuencia diferenciada por SHC",
+                        "Operador GSE: traslado directo, sin demoras injustificadas",
+                        "Load Master: valida posición en hold ventilada"
+                    ],
+                    systems: [
+                        "RAMP: timer por ULD desde salida cuarto frío, alerta por SHC",
+                        "Loading system: posición en hold diferenciada por T° target",
+                        "Registro fotográfico de posición final en hold (Priority)"
+                    ]
+                }
+            },
+            {
+                title: "P10-P11 · In-flight & Tránsito",
+                subtitle: "Hold único no puede satisfacer PES (0°C) y PEF tropical (+12°C) simultáneamente.",
+                monitoring: {
+                    title: "Monitoreo: ACARS reporta T° de hold — OCC diferencia alertas por SHC",
+                    desc: "OCC tiene dashboard con SHC de cada vuelo. Alerta PES se activa si T° >+4°C por >15 min. Alerta PEF si T° <0°C (daño por frío). En tránsito: prioridad de transbordo diferenciada: PES siempre primero."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Hold configurado a 0°C–+2°C si es el único perecedero a bordo. En tránsito: transbordo ≤60 min (Priority). Monitoreo ACARS cada 15 min.",
+                        "<strong>PEF (Flores):</strong> Tropicales y PES NO pueden compartir hold activo (incompatibilidad térmica). Hold ≤+8°C. En tránsito: transbordo ≤75 min.",
+                        "<strong>PEP (Frutas):</strong> Hold ≤+8°C. Mayor tolerancia térmica. En tránsito: transbordo ≤90 min."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Configurar T° de hold según SHC más crítico a bordo",
+                        "PEF tropical y PES NO pueden compartir el mismo hold activo",
+                        "Documentar T° de hold y SHC en bitácora de vuelo",
+                        "En escala: prioridad transbordo por SHC"
+                    ],
+                    people: [
+                        "OCC: monitoreo activo con alertas diferenciadas por SHC",
+                        "Tripulación: notificada de SHC críticos a bordo (especial PES)",
+                        "Coordinador de escala: gestiona transbordo según prioridad SHC"
+                    ],
+                    systems: [
+                        "ACARS: reporte T° hold diferenciado si hay múltiples holds",
+                        "OCC Dashboard: alertas por SHC con umbrales configurables",
+                        "Data logger por ULD: registro independiente de T° hold vs ULD"
+                    ]
+                }
+            },
+            {
+                title: "P12 · Llegada & Rampa Destino",
+                subtitle: "Orden de descarga inverso al embarque: PES primero. En MIA/MAD aplican inspecciones sanitarias.",
+                monitoring: {
+                    title: "Monitoreo: Timestamp de llegada al cuarto frío en destino por SHC",
+                    desc: "KPI crítico diferenciado: PES → cuarto frío ≤45 min; PEF → ≤60 min; PEP → ≤75 min. Si destino es MIA, coordinación con USDA/APHIS para inspección fitosanitaria PEP y sanitaria PES sin romper cadena de frío."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Descarga prioritaria (primero). Traslado directo a cuarto frío 0°C en destino. Inspección sanitaria USDA/APHIS en rampa o cuarto frío (no romper cadena). ≤45 min total.",
+                        "<strong>PEF (Flores):</strong> Segunda prioridad descarga. Traslado a zona sin exposición a etileno. Inspección fitosanitaria si aplica. ≤60 min al cuarto frío.",
+                        "<strong>PEP (Frutas):</strong> Tercera prioridad. Inspección fitosanitaria obligatoria en MIA para mayoría de orígenes LATAM. ≤90 min desde aterrizaje."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Descarga diferenciada: PES primero → PEF → PEP → general",
+                        "Traslado directo según T° requerida por SHC",
+                        "Coordinar inspección sanitaria sin romper cadena de frío",
+                        "Registrar ARR milestone en Cargo iQ con SHC activo"
+                    ],
+                    people: [
+                        "Jefe de rampa destino: coordina descarga por SHC",
+                        "Agente handling destino: conoce protocolos de inspección por SHC",
+                        "Inspector sanitario/fitosanitario: coordina en rampa o cuarto frío"
+                    ],
+                    systems: [
+                        "Cargo iQ: ARR milestone con campo SHC activo",
+                        "RAMP destino: timer de llegada a cuarto frío por SHC",
+                        "Alerta: notificación si PES supera 45 min fuera de frío"
+                    ]
+                }
+            },
+            {
+                title: "P13 · Break-down & Almacén Destino",
+                subtitle: "Lectura del data logger genera cool chain certificate diferenciado por SHC.",
+                monitoring: {
+                    title: "Monitoreo: Data logger report diferenciado + clasificación por SHC",
+                    desc: "Umbrales de aceptación diferenciados: PES — cualquier desviación >+6°C activa rechazo automático. PEF — desviación >+10°C activa rechazo. PEP — desviación >+14°C activa observación. Notificación al cliente diferenciada por criticidad del SHC."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Umbral de rechazo más estricto (+6°C). Inspección de integridad de embalaje impermeable obligatoria. Cualquier escurrimiento = rechazo + claim automático.",
+                        "<strong>PEF (Flores):</strong> Evaluar condición de marchitamiento o daño por frío. Umbral de rechazo +10°C. Tropicales: verificar que no hayan estado <+8°C (daño por frío).",
+                        "<strong>PEP (Frutas):</strong> Mayor tolerancia térmica. Umbral de observación +14°C. Evaluación visual de condición (maduración acelerada, golpes)."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Break-down en área refrigerada correcta por SHC",
+                        "Descargar data logger y clasificar: Conforme / Observación / Rechazo",
+                        "PES: inspección de integridad de embalaje obligatoria",
+                        "Generar cool chain certificate diferenciado por SHC"
+                    ],
+                    people: [
+                        "Supervisor de calidad con conocimiento de criterios por SHC",
+                        "Customer Support: notificación inmediata si rechazo PES/PEF Priority",
+                        "Especialista en claims: activar proceso según SHC afectado"
+                    ],
+                    systems: [
+                        "Data logger software: genera PDF con umbral configurado por SHC",
+                        "CMS: actualiza estado con campo SHC + clasificación de resultado",
+                        "Email automático al cliente con cool chain cert. (Priority)"
+                    ]
+                }
+            },
+            {
+                title: "P14-P15 · Entrega & Cierre",
+                subtitle: "Cierre del routemap Cargo iQ con milestone DLV. KPIs diferenciados por SHC para mejora continua.",
+                monitoring: {
+                    title: "Monitoreo: OTIF y claims diferenciados por SHC — base para mejora continua",
+                    desc: "Dashboard de producto con KPIs separados por PEF / PEP / PES. Análisis de tendencia de claims por SHC permite identificar rutas, turnos o temporadas problemáticas. Input para revisión anual del PCR y ajustes operacionales."
+                },
+                productDiff: {
+                    title: "Diferencias por Sub-producto",
+                    items: [
+                        "<strong>PES (Pescado):</strong> Entrega + reporte en <2h post-llegada vuelo (Priority). Claims por temperatura o wet cargo activan compensación inmediata. Mayor tasa de claims (3.2% en 2025).",
+                        "<strong>PEF (Flores):</strong> Entrega en ventana acordada. Claims por marchitamiento o daño por etileno. Temporadas pico requieren análisis especial (San Valentín, Día de la Madre).",
+                        "<strong>PEP (Frutas):</strong> Mayor diversificación de destinos = mayor complejidad logística. Claims por maduración acelerada o golpes. Análisis por especie (berries vs cítricos)."
+                    ]
+                },
+                pillars: {
+                    process: [
+                        "Entregar con cool chain certificate completo y SHC registrado",
+                        "AWB firmado con observación específica al tipo de producto",
+                        "Registrar DLV milestone en Cargo iQ para cálculo OTIF por SHC",
+                        "Datos alimentan dashboard de KPIs diferenciados"
+                    ],
+                    people: [
+                        "Agente de entrega: conoce condiciones de aceptación por SHC",
+                        "Customer Support: disponible para claims diferenciados (Priority)",
+                        "Product Manager: revisa KPIs por SHC mensualmente"
+                    ],
+                    systems: [
+                        "CMS: cierre shipment + cálculo OTIF diferenciado por SHC",
+                        "Dashboard producto: KPIs en tiempo real PEF / PEP / PES",
+                        "Cargo iQ: milestone DLV cierra routemap, alimenta benchmarks"
+                    ]
+                }
+            }
+        ];
+
+        // Show Phase Function
+        function showPhase(phaseIndex) {
+            // Update button states
+            document.querySelectorAll('.mop-phase-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === phaseIndex);
+            });
+
+            const phase = mopPhases[phaseIndex];
+            const container = document.getElementById('phase-detail-container');
+
+            container.innerHTML = `
+                <div class="phase-detail">
+                    <div class="phase-header">
+                        <div class="phase-title-main">${phase.title}</div>
+                        <div class="phase-subtitle">${phase.subtitle}</div>
+                    </div>
+
+                    <div class="monitoring-box">
+                        <div class="monitoring-title">${phase.monitoring.title}</div>
+                        <div class="monitoring-desc">${phase.monitoring.desc}</div>
+                    </div>
+
+                    ${phase.productDiff ? `
+                    <div class="product-diff-box">
+                        <div class="product-diff-title">🌸 🍓 🐟 ${phase.productDiff.title}</div>
+                        <div class="product-diff-items">
+                            ${phase.productDiff.items.map(item => `<div style="margin-bottom: 10px;">→ ${item}</div>`).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 16px 0;">Pilares Operacionales</h4>
+                    <div class="pillar-grid">
+                        <div class="pillar-card pillar-process">
+                            <div class="pillar-header">
+                                <div class="pillar-icon icon-process"></div>
+                                <div class="pillar-title">Proceso</div>
+                            </div>
+                            <ul class="pillar-items">
+                                ${phase.pillars.process.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="pillar-card pillar-people">
+                            <div class="pillar-header">
+                                <div class="pillar-icon icon-people"></div>
+                                <div class="pillar-title">Persona</div>
+                            </div>
+                            <ul class="pillar-items">
+                                ${phase.pillars.people.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="pillar-card pillar-systems">
+                            <div class="pillar-header">
+                                <div class="pillar-icon icon-systems"></div>
+                                <div class="pillar-title">Sistema</div>
+                            </div>
+                            <ul class="pillar-items">
+                                ${phase.pillars.systems.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize first phase on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showPhase(0);
+        });
+    </script>
+</body>
+</html>
