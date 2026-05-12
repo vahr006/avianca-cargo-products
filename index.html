@@ -13,8 +13,8 @@
 
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 11pt;
-            line-height: 1.6;
+            font-size: 14pt;
+            line-height: 1.8;
             color: #2C2C2C;
             background: #FFFFFF;
             padding: 0;
@@ -35,7 +35,7 @@
     margin: -40px -30px 40px -30px;
     border-bottom: 5px solid #2E7D32;
     position: relative;
-    min-height: 250px;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -742,11 +742,6 @@
 <div class="header">
     <div class="header-overlay"></div>
     <div class="header-content-flex">
-        <div class="header-icon-fresh">
-    <img src="https://raw.githubusercontent.com/vahr006/avianca-cargo-products/main/fresh.png" 
-         alt="Fresh" 
-         style="width: 70px; height: 70px; filter: brightness(0) invert(1);">
-</div>
         <div class="header-text-content">
             <h1>Producto: Fresh (Perecederos)</h1>
             <p>Subprodutos: Flores, Frutas, Verduras, Pescados & Mariscos</p>
@@ -773,11 +768,11 @@
         <!-- TAB: OVERVIEW -->
         <div id="overview" class="tab-content active">
             <div class="section">
-                <h2 class="section-title">Visión General del Portafolio PER</h2>
+                <h2 class="section-title">Visión General Portafolio Fresh</h2>
                 
                 <div class="info-grid">
                     <div class="info-card">
-                        <div class="info-label">Volumen Total 2025 (YTD)</div>
+                        <div class="info-label">Volumen Total</div>
                         <div class="info-value">442,473 tons</div>
                         <div class="info-note">144,349 embarques</div>
                     </div>
@@ -787,9 +782,9 @@
                         <div class="info-note">Por embarque</div>
                     </div>
                     <div class="info-card">
-                        <div class="info-label">Sub-productos Activos</div>
+                        <div class="info-label">Sub-productos</div>
                         <div class="info-value">3 principales</div>
-                        <div class="info-note">PEF, PEP, PES</div>
+                        <div class="info-note">PEF, PEP, PES, PEM</div>
                     </div>
                 </div>
 
@@ -963,7 +958,7 @@
                         </div>
                     </div>
 
-                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Ejecución 2025 — PEF Flores</h4>
+                    <h4 style="font-size: 12pt; font-weight: 600; margin: 24px 0 12px 0;">Ejecución - PEF Flores</h4>
                     <div class="kpi-grid">
                         <div class="kpi-card">
                             <div class="kpi-value">195,065</div>
@@ -1488,12 +1483,12 @@
         <!-- TAB: JOURNEY -->
         <div id="journey" class="tab-content">
             <div class="section">
-                <h2 class="section-title">Journey Operacional — Cargo iQ MOP v3.4</h2>
+                <h2 class="section-title">Journey Producto</h2>
                 
-                <p style="margin-bottom: 20px; color: #666;">El Master Operating Plan (MOP) define 19 procesos principales en el ciclo de vida de la carga aérea. Para perecederos, los procesos críticos del carrier (P07-P15) están diferenciados por sub-producto según los requisitos de cada SHC.</p>
+                <p style="margin-bottom: 20px; color: #666;">El journey Fresh define multiples procesos principales en el ciclo de vida del Producto. Para perecederos, los procesos críticos inician desde la planeación con el cliente, hasta la entrega del mismo en destino y están diferenciados por sub-producto según los requisitos de cada SHC.</p>
 
                 <div class="alert-box" style="background: #E3F2FD; border-color: #1565C0;">
-                    <strong>🔄 Clasificación por Capa Operacional:</strong> 
+                    <strong>🔄 Clasificación por milestone:</strong> 
                     <span class="mop-layer-tag layer-revenue">Revenue/Network</span>
                     <span class="mop-layer-tag layer-warehouse">Bodega</span>
                     <span class="mop-layer-tag layer-ramp">Rampa</span>
@@ -1504,49 +1499,41 @@
                 <div class="mop-phases" id="mop-navigator">
                     <button class="mop-phase-btn active" onclick="showPhase(0)">
                         <div class="mop-phase-group">Pre-vuelo</div>
-                        <div class="mop-phase-number">P01-P02</div>
-                        <div class="mop-phase-name">Booking & Planning</div>
+                       <div class="mop-phase-name">Booking & Planning</div>
                         <span class="mop-layer-tag layer-revenue">Revenue</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(1)">
                         <div class="mop-phase-group">Origen Carrier</div>
-                        <div class="mop-phase-number">P07</div>
                         <div class="mop-phase-name">Recepción</div>
                         <span class="mop-layer-tag layer-warehouse">Bodega</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(2)">
                         <div class="mop-phase-group">Origen Carrier</div>
-                        <div class="mop-phase-number">P08</div>
                         <div class="mop-phase-name">Aceptación & Build-up</div>
                         <span class="mop-layer-tag layer-warehouse">Bodega</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(3)">
                         <div class="mop-phase-group">Transporte</div>
-                        <div class="mop-phase-number">P09</div>
                         <div class="mop-phase-name">Rampa & Embarque</div>
                         <span class="mop-layer-tag layer-ramp">Rampa</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(4)">
                         <div class="mop-phase-group">Transporte</div>
-                        <div class="mop-phase-number">P10-P11</div>
                         <div class="mop-phase-name">In-flight & Tránsito</div>
                         <span class="mop-layer-tag layer-aircraft">Aeronave</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(5)">
                         <div class="mop-phase-group">Destino Carrier</div>
-                        <div class="mop-phase-number">P12</div>
                         <div class="mop-phase-name">Llegada & Rampa</div>
                         <span class="mop-layer-tag layer-ramp">Rampa</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(6)">
                         <div class="mop-phase-group">Destino Carrier</div>
-                        <div class="mop-phase-number">P13</div>
                         <div class="mop-phase-name">Break-down</div>
                         <span class="mop-layer-tag layer-warehouse">Bodega</span>
                     </button>
                     <button class="mop-phase-btn" onclick="showPhase(7)">
                         <div class="mop-phase-group">Destino</div>
-                        <div class="mop-phase-number">P14-P15</div>
                         <div class="mop-phase-name">Entrega & Cierre</div>
                         <span class="mop-layer-tag layer-warehouse">Bodega</span>
                     </button>
@@ -1560,7 +1547,7 @@
         <!-- TAB: EXECUTION DATA -->
         <div id="execution" class="tab-content">
             <div class="section">
-                <h2 class="section-title">Datos de Ejecución 2025 (YTD)</h2>
+                <h2 class="section-title">Ejecución (YTD)</h2>
                 
                 <p style="margin-bottom: 20px; color: #666;">Análisis basado en 144,349 embarques y 442,473 toneladas transportadas durante 2025.</p>
 
@@ -1777,7 +1764,7 @@
                     </tbody>
                 </table>
 
-                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Distribución de Temperatura por Sub-producto</h3>
+                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Distribución Temperatura por Sub-producto</h3>
                 <table>
                     <thead>
                         <tr>
@@ -1790,21 +1777,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>PES — Pescado</strong></td>
+                            <td><strong>PES - Pescado</strong></td>
                             <td class="metric-good">64.6% (7,760)</td>
                             <td>0.0% (4)</td>
                             <td>35.4%</td>
                             <td>Más refrigerado — cadena de frío crítica</td>
                         </tr>
                         <tr>
-                            <td><strong>PEP — Frutas</strong></td>
+                            <td><strong>PEP - Frutas</strong></td>
                             <td>12.7% (1,510)</td>
                             <td>1.0% (120)</td>
                             <td>86.3%</td>
-                            <td>Mix variable — depende de especie</td>
+                            <td>Mix variable - depende de especie</td>
                         </tr>
                         <tr>
-                            <td><strong>PEF — Flores</strong></td>
+                            <td><strong>PEF - Flores</strong></td>
                             <td>6.4% (3,388)</td>
                             <td>0.1% (50)</td>
                             <td>93.5%</td>
@@ -1827,27 +1814,27 @@
                     <div class="cert-badge">
                         <div class="cert-logo">✓</div>
                         <div class="cert-name">BOG</div>
-                        <div class="cert-station">Sep 2022</div>
+                        <div class="cert-station">Validez: Noviembre 2028</div>
                     </div>
                     <div class="cert-badge">
                         <div class="cert-logo">✓</div>
                         <div class="cert-name">MDE</div>
-                        <div class="cert-station">Sep 2022</div>
+                        <div class="cert-station">Validez: Noviembre 2028</div>
                     </div>
                     <div class="cert-badge">
                         <div class="cert-logo">✓</div>
                         <div class="cert-name">MIA</div>
-                        <div class="cert-station">Sep 2022</div>
+                        <div class="cert-station">Validez: Marzo 2029</div>
                     </div>
                     <div class="cert-badge">
                         <div class="cert-logo">✓</div>
                         <div class="cert-name">UIO</div>
-                        <div class="cert-station">Nov 2022</div>
+                        <div class="cert-station">Validez: Enero 2029</div>
                     </div>
                     <div class="cert-badge">
                         <div class="cert-logo">✓</div>
                         <div class="cert-name">SCL</div>
-                        <div class="cert-station">Mayo 2023</div>
+                        <div class="cert-station">Validez: Mayo 2029</div>
                     </div>
                 </div>
 
@@ -1869,7 +1856,7 @@
                         <tr>
                             <td><strong>IATA Cargo iQ MOP</strong></td>
                             <td>v3.4</td>
-                            <td>Master Operating Plan — 19 procesos principales, carrier processes P07-P15</td>
+                            <td>Master Operating Plan</td>
                         </tr>
                         <tr>
                             <td><strong>IATA CEIV Fresh</strong></td>
@@ -1879,7 +1866,7 @@
                         <tr>
                             <td><strong>IATA Special Handling Codes</strong></td>
                             <td>Cargo IMP Manual</td>
-                            <td>Códigos estandarizados: PEF, PEP, PES, COL, CRT, FRO, FRI, WET</td>
+                            <td>Códigos estandarizados: PEF, PEP, PES, PEM, COL, CRT, FRO, FRI, WET</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1958,10 +1945,9 @@
 
         <!-- FOOTER -->
         <div class="footer">
-            <p>Avianca Cargo — Productos Perecederos | Product Sheet v1.1</p>
-            <p style="margin-top: 8px;">Última actualización: Mayo 2026 | Datos 2025 YTD (144,349 embarques, 442,473 tons)</p>
-            <p style="margin-top: 8px;">© 2026 Avianca Cargo. Todos los derechos reservados.</p>
-        </div>
+            <p>Avianca Cargo - Portafolio Fresh | Product Sheet</p>
+            <p style="margin-top: 8px;">Última actualización: Mayo 2026</p>
+            </div>
     </div>
 
     <script>
