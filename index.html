@@ -31,11 +31,11 @@
     background: linear-gradient(135deg, rgba(46,125,50,0.30) 0%, rgba(27,94,32,0.30) 100%),
                 url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=1600&q=80') center/cover;
     color: white;
-    padding: 40px 60px;
+    padding: 50px 60px;
     margin: -40px -30px 40px -30px;
     border-bottom: 5px solid #2E7D32;
     position: relative;
-    min-height: 200px;
+    min-height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,8 +63,9 @@
 
 .header-icon-fresh {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    font-size: 60px;
     background: rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
@@ -742,14 +743,10 @@
     <div class="header-overlay"></div>
     <div class="header-content-flex">
         <div class="header-icon-fresh">
-            <svg viewBox="0 0 100 100" width="100" height="100">
-                <path d="M50,10 Q60,20 50,30 Q40,20 50,10 M70,30 Q80,40 70,50 Q60,40 70,30 M70,70 Q80,60 70,50 Q60,60 70,70 M50,90 Q60,80 50,70 Q40,80 50,90 M30,70 Q40,60 30,50 Q20,60 30,70 M30,30 Q40,40 30,50 Q20,40 30,30" 
-                      fill="none" 
-                      stroke="white" 
-                      stroke-width="8"/>
-                <circle cx="50" cy="50" r="8" fill="white"/>
-            </svg>
-        </div>
+    <img src="https://raw.githubusercontent.com/vahr006/avianca-cargo-products/main/fresh.png" 
+         alt="Fresh" 
+         style="width: 70px; height: 70px; filter: brightness(0) invert(1);">
+</div>
         <div class="header-text-content">
             <h1>Producto: Fresh (Perecederos)</h1>
             <p>Subprodutos: Flores, Frutas, Verduras, Pescados & Mariscos</p>
@@ -757,8 +754,7 @@
                 <span class="badge">IATA PCR (2026)</span>
                 <span class="badge">Cargo iQ MOP v3.4</span>
                 <span class="badge">CEIV Fresh Certified</span>
-                <span class="badge">Datos Historicos + YTD</span>
-            </div>
+              </div>
         </div>
     </div>
 </div>
@@ -766,11 +762,11 @@
     <div class="container">
         <!-- Navigation Tabs -->
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showTab('overview')">Resumen General</button>
+            <button class="nav-tab active" onclick="showTab('overview')">Resumen</button>
             <button class="nav-tab" onclick="showTab('subproducts')">Sub-productos</button>
-            <button class="nav-tab" onclick="showTab('tiers')">Tiers de Servicio</button>
-            <button class="nav-tab" onclick="showTab('journey')">Journey Operacional (MOP)</button>
-            <button class="nav-tab" onclick="showTab('execution')">Datos de Ejecución 2025</button>
+            <button class="nav-tab" onclick="showTab('tiers')">Productos Velocidad</button>
+            <button class="nav-tab" onclick="showTab('journey')">Journey Producto</button>
+            <button class="nav-tab" onclick="showTab('execution')">Ejecución</button>
             <button class="nav-tab" onclick="showTab('standards')">Estándares & Certificaciones</button>
         </div>
 
