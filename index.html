@@ -21,21 +21,27 @@
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 30px;
-        }
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 60px 40px 60px;
+}
 
 /* HEADER empty */
 
         /* NAVIGATION TABS */
-        .nav-tabs {
-            display: flex;
-            gap: 0;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #E0E0E0;
-            overflow-x: auto;
-        }
+.nav-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    margin-top: 0;
+    padding-top: 20px;
+    border-bottom: 2px solid #E0E0E0;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
 
         .nav-tab {
             padding: 14px 24px;
@@ -423,11 +429,7 @@
                 display: block !important;
                 page-break-after: always;
             }
-            .header {
-                margin: 0;
-                page-break-after: avoid;
-            }
-        }
+    }
 
         /* MOP JOURNEY STYLES */
         .mop-phases {
@@ -649,21 +651,6 @@
     </style>
 </head>
 <body>
-
-<div class="header">
-    <div class="header-overlay"></div>
-    <div class="header-content-flex">
-        <div class="header-text-content">
-            <h1>Producto: Fresh (Perecederos)</h1>
-            <p>Subprodutos: Flores, Frutas, Verduras, Pescados & Mariscos</p>
-            <div class="badges">
-                <span class="badge">IATA PCR (2026)</span>
-                <span class="badge">Cargo iQ MOP v3.4</span>
-                <span class="badge">CEIV Fresh Certified</span>
-              </div>
-        </div>
-    </div>
-</div>
 
     <div class="container">
         <!-- Navigation Tabs -->
