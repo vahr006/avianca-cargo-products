@@ -32,9 +32,9 @@
 .nav-tabs {
     display: flex;
     gap: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     margin-top: 0;
-    padding: 20px 0;
+    padding: 30px 40px 0;
     border-bottom: 3px solid #E0E0E0;
     overflow-x: auto;
     position: sticky;
@@ -42,30 +42,37 @@
     background: white;
     z-index: 100;
     justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-   .nav-tab {
-    padding: 16px 30px;
+.nav-tab {
+    padding: 18px 32px;
     background: none;
     border: none;
+    border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
     cursor: pointer;
     font-size: 13pt;
-    font-weight: 500;
+    font-weight: 600;
     color: #666;
-    transition: all 0.2s;
+    transition: all 0.3s;
     white-space: nowrap;
+    position: relative;
 }
 
-        .nav-tab:hover {
-            color: #C8102E;
-            background: #F8F8F8;
-        }
+.nav-tab:hover {
+    color: #2E7D32;
+    background: #F1F8F4;
+    border-top-color: #A5D6A7;
+}
 
 .nav-tab.active {
-    color: #C8102E;
-    border-bottom-color: #C8102E;
+    color: #2E7D32;
+    border-top-color: #2E7D32;
+    border-bottom-color: white;
     font-weight: 700;
+    background: white;
+    margin-bottom: -3px;
 }
 
         .tab-content {
