@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avianca Cargo - Producto Fresh | Product Sheet</title>
+    <title>Avianca Cargo - Portafolio Fresh | Product Sheet</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +15,20 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
+        img, svg, canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+        }
+
         body {
             font-family: 'Red Hat Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-size: 11pt;
@@ -22,6 +36,9 @@
             color: #2C2C2C;
             background: #FFFFFF;
             padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
 /* TIPOGRAFÍA ESTANDARIZADA */
@@ -89,10 +106,11 @@ p, li, td {
 }
 
 .container {
-    max-width: none;
+    max-width: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* HEADER empty */
@@ -146,7 +164,9 @@ p, li, td {
 
       .tab-content {
     display: none;
-    padding: 50px 80px;
+    padding: 20px 20px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .tab-content.active {
@@ -428,34 +448,35 @@ p, li, td {
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin: 20px 0;
+            gap: 12px;
+            margin: 15px 0;
         }
 
         .kpi-card {
             background: white;
             border: 1px solid #E0E0E0;
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 14px 16px;
             text-align: center;
         }
 
         .kpi-value {
-            font-size: 28pt;
+            font-size: 24pt;
             font-weight: 700;
             color: #C8102E;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+            line-height: 1;
         }
 
         .kpi-label {
             font-size: 9pt;
             color: #666;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .kpi-status {
             font-size: 9pt;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         .kpi-status.good {
@@ -522,6 +543,22 @@ p, li, td {
                 page-break-after: always;
             }
     }
+
+        @media (max-width: 1200px) {
+            .tab-content {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tab-content {
+                padding: 20px 10px;
+            }
+            .nav-tab {
+                padding: 12px 16px;
+                font-size: 10pt;
+            }
+        }
 
         /* MOP JOURNEY STYLES */
         .mop-phases {
@@ -747,29 +784,29 @@ p, li, td {
 
         /* STATION CARDS */
         .dashboard-section-title {
-            font-size: 20pt;
+            font-size: 15pt;
             font-weight: 700;
             color: #1A1A1A;
-            margin-bottom: 24px;
-            margin-top: 40px;
+            margin-bottom: 16px;
+            margin-top: 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .dashboard-section-title::before {
             content: '';
-            width: 6px;
-            height: 32px;
+            width: 4px;
+            height: 24px;
             background: #C8102E;
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
         .stations-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 48px;
+            gap: 16px;
+            margin-bottom: 30px;
             max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
@@ -777,9 +814,9 @@ p, li, td {
 
         .station-card {
             background: white;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
@@ -787,8 +824,8 @@ p, li, td {
         }
 
         .station-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .station-card.expanded {
@@ -796,32 +833,34 @@ p, li, td {
         }
 
         .station-flag {
-            font-size: 32pt;
-            margin-bottom: 12px;
+            font-size: 24pt;
+            margin-bottom: 8px;
+            line-height: 1;
         }
 
         .station-route {
-            font-size: 18pt;
+            font-size: 15pt;
             font-weight: 700;
             color: #1A1A1A;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
+            line-height: 1;
         }
 
         .station-metrics {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
 
         .metric {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
         }
 
         .metric-label {
-            font-size: 9pt;
+            font-size: 8pt;
             font-weight: 600;
             color: #666;
             text-transform: uppercase;
@@ -829,22 +868,22 @@ p, li, td {
         }
 
         .metric-value {
-            font-size: 20pt;
+            font-size: 16pt;
             font-weight: 700;
             color: #1A1A1A;
         }
 
         .metric-value.small {
-            font-size: 16pt;
+            font-size: 13pt;
         }
 
         .share-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14pt;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11pt;
             font-weight: 700;
         }
 
@@ -864,23 +903,23 @@ p, li, td {
         }
 
         .station-product {
-            font-size: 10pt;
+            font-size: 9pt;
             color: #666;
-            margin-top: 12px;
-            padding: 8px 12px;
+            margin-top: 8px;
+            padding: 4px 8px;
             background: #F5F5F5;
-            border-radius: 6px;
+            border-radius: 4px;
             display: inline-block;
         }
 
         .expand-btn {
-            margin-top: 16px;
-            padding: 10px 20px;
+            margin-top: 10px;
+            padding: 8px 16px;
             background: #C8102E;
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 11pt;
+            border-radius: 6px;
+            font-size: 10pt;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -894,8 +933,8 @@ p, li, td {
 
         .station-detail {
             display: none;
-            margin-top: 32px;
-            padding-top: 32px;
+            margin-top: 20px;
+            padding-top: 20px;
             border-top: 2px solid #F0F0F0;
         }
 
@@ -906,48 +945,48 @@ p, li, td {
         .detail-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            gap: 20px;
         }
 
         .detail-chart {
-            height: 300px;
+            height: 240px;
         }
 
         .detail-tip {
             background: #FFF3E0;
-            padding: 24px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 8px;
             border-left: 4px solid #FF9800;
         }
 
         .detail-tip-title {
-            font-size: 14pt;
+            font-size: 12pt;
             font-weight: 700;
             color: #E65100;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .detail-tip-content {
-            font-size: 11pt;
+            font-size: 10pt;
             color: #4A4A4A;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .detail-tip-content ul {
             margin-top: 8px;
-            padding-left: 20px;
+            padding-left: 18px;
         }
 
         .detail-tip-content li {
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         /* CHART SECTION */
         .chart-section {
             background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 32px;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             max-width: 1600px;
             margin-left: auto;
@@ -955,44 +994,44 @@ p, li, td {
         }
 
         .chart-header {
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .chart-title {
-            font-size: 20pt;
+            font-size: 16pt;
             font-weight: 700;
             color: #1A1A1A;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .chart-subtitle {
-            font-size: 11pt;
+            font-size: 10pt;
             color: #666;
         }
 
         .chart-container {
             position: relative;
-            height: 450px;
+            height: 320px;
         }
 
         .chart-note {
-            margin-top: 20px;
-            padding: 16px;
+            margin-top: 16px;
+            padding: 12px;
             background: #F5F5F5;
             border-left: 4px solid #C8102E;
             border-radius: 4px;
-            font-size: 10pt;
+            font-size: 9pt;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* SALES TIP */
         .sales-tip {
             background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
             position: relative;
             overflow: hidden;
             max-width: 1600px;
@@ -1002,35 +1041,35 @@ p, li, td {
 
         .sales-tip::before {
             content: '💡';
-            font-size: 48pt;
+            font-size: 36pt;
             position: absolute;
-            top: 20px;
-            right: 30px;
-            opacity: 0.3;
+            top: 12px;
+            right: 20px;
+            opacity: 0.25;
         }
 
         .sales-tip-title {
-            font-size: 16pt;
+            font-size: 13pt;
             font-weight: 700;
             color: #E65100;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .sales-tip-content {
-            font-size: 11pt;
+            font-size: 10pt;
             color: #4A4A4A;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .sales-tip-bullets {
-            margin-top: 16px;
-            padding-left: 20px;
+            margin-top: 10px;
+            padding-left: 18px;
         }
 
         .sales-tip-bullets li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .sales-tip-content strong {
@@ -1071,7 +1110,7 @@ p, li, td {
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showTab('overview')">Resumen</button>
             <button class="nav-tab" onclick="showTab('subproducts')">Sub-productos</button>
-            <button class="nav-tab" onclick="showTab('tiers')">Velocidad</button>
+            <button class="nav-tab" onclick="showTab('tiers')">Productos Velocidad</button>
             <button class="nav-tab" onclick="showTab('journey')">Journey Producto</button>
             <button class="nav-tab" onclick="showTab('execution')">Ejecución</button>
             <button class="nav-tab" onclick="showTab('standards')">Estándares</button>
@@ -1081,9 +1120,9 @@ p, li, td {
         <div id="overview" class="tab-content active">
             <!-- DASHBOARD DE RESUMEN COMERCIAL -->
             <div class="section">
-                <h2 class="section-title">Resumen YoY • Análisis de Mercado</h2>
+                <h2 class="section-title">Ejecución YoY • Análisis de Mercado</h2>
                 
-                <p style="margin-bottom: 32px; color: #666; font-size: 11pt;">
+                <p style="margin-bottom: 16px; color: #666; font-size: 10pt;">
                     Análisis de mercado y performance • Datos WorldACD 2023-2026
                 </p>
 
@@ -1142,7 +1181,7 @@ p, li, td {
                             </div>
                         </div>
 
-                        <div class="station-product"> Principal: PEF (Flores) 49%</div>
+                        <div class="station-product">🌸 Principal: PEF (Flores) 49%</div>
                         
                         <button class="expand-btn" onclick="toggleCard('bog')">Ver Detalles →</button>
 
@@ -2203,7 +2242,7 @@ p, li, td {
         <!-- TAB: TIERS -->
         <div id="tiers" class="tab-content">
             <div class="section">
-                <h2 class="section-title">Tiers de Servicio Aplicables a PER</h2>
+                <h2 class="section-title">Velocidad aplicable Fresh</h2>
                 
                 <div class="tier-grid">
                     <div class="tier-card priority">
@@ -2781,7 +2820,7 @@ p, li, td {
         <!-- FOOTER -->
         <div class="footer">
             <p>Avianca Cargo - Portafolio Fresh | Product Sheet</p>
-            <p style="margin-top: 8px;">Última actualización: Mayo 2026</p>
+            <p style="margin-top: 8px;">Última actualización de datos: Marzo 2026</p>
             </div>
     </div>
 
