@@ -26,16 +26,16 @@
             padding: 40px 30px;
         }
 
-        /* HEADER */
+/* HEADER */
 .header {
-    background: linear-gradient(135deg, rgba(76,175,80,0.40) 0%, rgba(46,125,50,0.40) 100%),
-            url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=1600&q=80') center/cover;
+    background: linear-gradient(135deg, rgba(46,125,50,0.30) 0%, rgba(27,94,32,0.30) 100%),
+                url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=1600&q=80') center/cover;
     color: white;
-    padding: 60px 40px;
+    padding: 40px 60px;
     margin: -40px -30px 40px -30px;
-    border-bottom: 5px solid #8B0A1F;
+    border-bottom: 5px solid #2E7D32;
     position: relative;
-    min-height: 300px;
+    min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,41 +47,63 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.15);
     z-index: 1;
 }
 
-.header-content-centered {
+.header-content-flex {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 900px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .header-icon-fresh {
-    margin: 0 auto 20px;
-    width: 120px;
-    height: 120px;
-    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px);
-    border: 3px solid rgba(255,255,255,0.3);
+    border: 3px solid rgba(255,255,255,0.4);
 }
 
 .header-icon-fresh svg {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
-        
-        .badges {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
 
+.header-text-content {
+    flex: 1;
+}
+
+.header-text-content h1 {
+    font-size: 38pt;
+    font-weight: 300;
+    margin: 0 0 10px 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    line-height: 1.1;
+}
+
+.header-text-content p {
+    font-size: 14pt;
+    color: white;
+    opacity: 0.95;
+    margin: 0 0 15px 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.header-text-content .badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
        .badge {
     background: rgba(255,255,255,0.25);
     padding: 6px 14px;
@@ -716,11 +738,11 @@
 </head>
 <body>
 
-    <div class="header">
+<div class="header">
     <div class="header-overlay"></div>
-    <div class="header-content-centered">
+    <div class="header-content-flex">
         <div class="header-icon-fresh">
-            <svg viewBox="0 0 100 100" width="120" height="120">
+            <svg viewBox="0 0 100 100" width="100" height="100">
                 <path d="M50,10 Q60,20 50,30 Q40,20 50,10 M70,30 Q80,40 70,50 Q60,40 70,30 M70,70 Q80,60 70,50 Q60,60 70,70 M50,90 Q60,80 50,70 Q40,80 50,90 M30,70 Q40,60 30,50 Q20,60 30,70 M30,30 Q40,40 30,50 Q20,40 30,30" 
                       fill="none" 
                       stroke="white" 
@@ -728,13 +750,15 @@
                 <circle cx="50" cy="50" r="8" fill="white"/>
             </svg>
         </div>
-        <h1 style="font-size: 42pt; font-weight: 300; margin: 20px 0 10px 0; color: white; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Productos Perecederos</h1>
-        <p style="font-size: 16pt; color: white; opacity: 0.95; text-align: center; margin-bottom: 25px;">Flores, Frutas & Verduras, Pescados & Mariscos</p>
-        <div class="badges" style="justify-content: center;">
-            <span class="badge">IATA PCR 25th Ed. (2026)</span>
-            <span class="badge">Cargo iQ MOP v3.4</span>
-            <span class="badge">CEIV Fresh</span>
-            <span class="badge">Datos (YTD)</span>
+        <div class="header-text-content">
+            <h1>Producto: Fresh (Perecederos)</h1>
+            <p>Subprodutos: Flores, Frutas, Verduras, Pescados & Mariscos</p>
+            <div class="badges">
+                <span class="badge">IATA PCR (2026)</span>
+                <span class="badge">Cargo iQ MOP v3.4</span>
+                <span class="badge">CEIV Fresh Certified</span>
+                <span class="badge">Datos Historicos + YTD</span>
+            </div>
         </div>
     </div>
 </div>
