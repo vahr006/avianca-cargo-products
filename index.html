@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avianca Cargo — Productos Perecederos | Product Sheet</title>
+    <title>Avianca Cargo - Producto Fresh | Product Sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     <style>
         * {
             margin: 0;
@@ -12,13 +16,77 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 14pt;
-            line-height: 1.8;
+            font-family: 'Red Hat Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 11pt;
+            line-height: 1.7;
             color: #2C2C2C;
             background: #FFFFFF;
             padding: 0;
         }
+
+/* TIPOGRAFÍA ESTANDARIZADA */
+
+/* Títulos principales */
+h1, .title-xl {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 28pt;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h2, .title-lg {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 18pt;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h3, .title-md {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Texto del cuerpo */
+p, li, td {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* Texto pequeño */
+.text-small {
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+/* Texto grande */
+.text-large {
+    font-size: 13pt;
+    font-weight: 400;
+}
+
+/* Labels y subtítulos */
+.label, .subtitle {
+    font-size: 9pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos inline helper */
+.inline-text-small {
+    font-size: 10pt !important;
+    line-height: 1.6;
+}
+
+.inline-text-note {
+    font-size: 11pt !important;
+    color: #666;
+    line-height: 1.7;
+}
 
 .container {
     max-width: none;
@@ -53,7 +121,7 @@
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
     cursor: pointer;
-    font-size: 13pt;
+    font-size: 12pt;
     font-weight: 600;
     color: #666;
     transition: all 0.3s;
@@ -78,7 +146,7 @@
 
       .tab-content {
     display: none;
-    padding: 40px 60px;
+    padding: 50px 80px;
 }
 
 .tab-content.active {
@@ -121,7 +189,7 @@
         }
 
         .product-name {
-            font-size: 13pt;
+            font-size: 14pt;
             font-weight: 600;
             color: #2C2C2C;
             margin-bottom: 8px;
@@ -156,20 +224,20 @@
 
         /* SECTION STYLES */
        .section {
-    max-width: 1400px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
 }
 
 .section-title {
-    font-size: 16pt;
+    font-size: 18pt;
     font-weight: 600;
     color: #C8102E;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #F0F0F0;
-    max-width: 1400px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -177,9 +245,9 @@
      .info-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
     margin-bottom: 30px;
-    max-width: 1400px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -201,13 +269,13 @@
         }
 
         .info-value {
-            font-size: 13pt;
+            font-size: 16pt;
             font-weight: 600;
             color: #2C2C2C;
         }
 
         .info-note {
-            font-size: 9pt;
+            font-size: 10pt;
             color: #999;
             margin-top: 4px;
             font-style: italic;
@@ -230,7 +298,7 @@
         /* TABLE STYLES */
     table {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
@@ -260,7 +328,7 @@
         td {
             padding: 14px 16px;
             border-bottom: 1px solid #F0F0F0;
-            font-size: 10pt;
+            font-size: 11pt;
         }
 
         tr:hover {
@@ -331,7 +399,7 @@
             border-bottom: 1px solid #F0F0F0;
             display: flex;
             justify-content: space-between;
-            font-size: 10pt;
+            font-size: 11pt;
         }
 
         .tier-features li:last-child {
@@ -353,7 +421,7 @@
             padding: 16px 20px;
             border-radius: 8px;
             margin-top: 20px;
-            font-size: 10pt;
+            font-size: 11pt;
         }
 
         /* KPI CARDS */
@@ -420,7 +488,7 @@
         }
 
         .cert-name {
-            font-size: 10pt;
+            font-size: 11pt;
             font-weight: 600;
             color: #2C2C2C;
             margin-bottom: 4px;
@@ -491,7 +559,7 @@
         }
 
         .mop-phase-group {
-            font-size: 8pt;
+            font-size: 9pt;
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -506,7 +574,7 @@
         }
 
         .mop-phase-name {
-            font-size: 10pt;
+            font-size: 11pt;
             font-weight: 600;
             color: #2C2C2C;
             line-height: 1.3;
@@ -518,7 +586,7 @@
         }
 
         .mop-layer-tag {
-            font-size: 8pt;
+            font-size: 9pt;
             padding: 3px 8px;
             border-radius: 10px;
             font-weight: 600;
@@ -542,7 +610,7 @@
         }
 
         .phase-title-main {
-            font-size: 16pt;
+            font-size: 18pt;
             font-weight: 600;
             color: #C8102E;
             margin-bottom: 8px;
@@ -599,7 +667,7 @@
 
         .pillar-items li {
             padding: 6px 0;
-            font-size: 10pt;
+            font-size: 11pt;
             color: #555;
             line-height: 1.5;
             display: flex;
@@ -628,7 +696,7 @@
         }
 
         .monitoring-desc {
-            font-size: 10pt;
+            font-size: 11pt;
             color: #666;
             line-height: 1.6;
         }
@@ -649,7 +717,7 @@
         }
 
         .product-diff-items {
-            font-size: 10pt;
+            font-size: 11pt;
             color: #666;
             line-height: 1.8;
         }
@@ -672,6 +740,328 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ============================================ */
+        /* ESTILOS DEL DASHBOARD DE RESUMEN */
+        /* ============================================ */
+
+        /* STATION CARDS */
+        .dashboard-section-title {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 24px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dashboard-section-title::before {
+            content: '';
+            width: 6px;
+            height: 32px;
+            background: #C8102E;
+            border-radius: 3px;
+        }
+
+        .stations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .station-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .station-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .station-card.expanded {
+            grid-column: span 3;
+        }
+
+        .station-flag {
+            font-size: 32pt;
+            margin-bottom: 12px;
+        }
+
+        .station-route {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+        }
+
+        .station-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .metric-label {
+            font-size: 9pt;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .metric-value.small {
+            font-size: 16pt;
+        }
+
+        .share-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14pt;
+            font-weight: 700;
+        }
+
+        .share-badge.high {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .share-badge.medium {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .share-badge.low {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .station-product {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 12px;
+            padding: 8px 12px;
+            background: #F5F5F5;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .expand-btn {
+            margin-top: 16px;
+            padding: 10px 20px;
+            background: #C8102E;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 11pt;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            font-family: 'Red Hat Display', sans-serif;
+        }
+
+        .expand-btn:hover {
+            background: #A00D24;
+        }
+
+        .station-detail {
+            display: none;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid #F0F0F0;
+        }
+
+        .station-detail.visible {
+            display: block;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .detail-chart {
+            height: 300px;
+        }
+
+        .detail-tip {
+            background: #FFF3E0;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #FF9800;
+        }
+
+        .detail-tip-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #E65100;
+            margin-bottom: 12px;
+        }
+
+        .detail-tip-content {
+            font-size: 11pt;
+            color: #4A4A4A;
+            line-height: 1.7;
+        }
+
+        .detail-tip-content ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .detail-tip-content li {
+            margin-bottom: 6px;
+        }
+
+        /* CHART SECTION */
+        .chart-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-header {
+            margin-bottom: 32px;
+        }
+
+        .chart-title {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+        }
+
+        .chart-subtitle {
+            font-size: 11pt;
+            color: #666;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 450px;
+        }
+
+        .chart-note {
+            margin-top: 20px;
+            padding: 16px;
+            background: #F5F5F5;
+            border-left: 4px solid #C8102E;
+            border-radius: 4px;
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* SALES TIP */
+        .sales-tip {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sales-tip::before {
+            content: '💡';
+            font-size: 48pt;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            opacity: 0.3;
+        }
+
+        .sales-tip-title {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #E65100;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sales-tip-content {
+            font-size: 11pt;
+            color: #4A4A4A;
+            line-height: 1.8;
+        }
+
+        .sales-tip-bullets {
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+
+        .sales-tip-bullets li {
+            margin-bottom: 8px;
+        }
+
+        .sales-tip-content strong {
+            color: #E65100;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE DASHBOARD */
+        @media (max-width: 1200px) {
+            .stations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .station-card.expanded {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .station-card.expanded {
+                grid-column: span 1;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -681,7 +1071,7 @@
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showTab('overview')">Resumen</button>
             <button class="nav-tab" onclick="showTab('subproducts')">Sub-productos</button>
-            <button class="nav-tab" onclick="showTab('tiers')">Productos Velocidad</button>
+            <button class="nav-tab" onclick="showTab('tiers')">Velocidad</button>
             <button class="nav-tab" onclick="showTab('journey')">Journey Producto</button>
             <button class="nav-tab" onclick="showTab('execution')">Ejecución</button>
             <button class="nav-tab" onclick="showTab('standards')">Estándares</button>
@@ -689,113 +1079,636 @@
 
         <!-- TAB: OVERVIEW -->
         <div id="overview" class="tab-content active">
+            <!-- DASHBOARD DE RESUMEN COMERCIAL -->
             <div class="section">
-                <h2 class="section-title">Visión General Portafolio Fresh</h2>
+                <h2 class="section-title">Resumen YoY • Análisis de Mercado</h2>
                 
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="info-label">Volumen Total</div>
-                        <div class="info-value">442,473 tons</div>
-                        <div class="info-note">144,349 embarques</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-label">Peso Promedio</div>
-                        <div class="info-value">3,065 kg</div>
-                        <div class="info-note">Por embarque</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-label">Sub-productos</div>
-                        <div class="info-value">3 principales</div>
-                        <div class="info-note">PEF, PEP, PES, PEM</div>
-                    </div>
-                </div>
+                <p style="margin-bottom: 32px; color: #666; font-size: 11pt;">
+                    Análisis de mercado y performance • Datos WorldACD 2023-2026
+                </p>
 
-                <div class="alert-box">
-                    <strong>⚠ Importante:</strong> Stand By NO aplica a ningún sub-producto perecedero. El tiempo de espera de hasta 3 días es incompatible con la vida útil de PEF, PEP y PES según IATA PCR 25th Edition.
-                </div>
-
-                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Distribución de Volumen por Sub-producto</h3>
-                
+                <!-- KPI CARDS -->
                 <div class="kpi-grid">
                     <div class="kpi-card">
-                        <div class="kpi-value">44.1%</div>
-                        <div class="kpi-label">PEF — Flores</div>
-                        <div class="kpi-status good">195,065 tons</div>
+                        <div class="kpi-label">Market Share 2025</div>
+                        <div class="kpi-value">27.0%</div>
+                        <div class="kpi-status" style="color: #C62828;">-2.2 pts vs 2024</div>
                     </div>
+
                     <div class="kpi-card">
-                        <div class="kpi-value">9.0%</div>
-                        <div class="kpi-label">PES — Pescado</div>
-                        <div class="kpi-status good">39,903 tons</div>
+                        <div class="kpi-label">Avianca (tons)</div>
+                        <div class="kpi-value">375K</div>
+                        <div class="kpi-status good">+1.0% YoY</div>
                     </div>
+
                     <div class="kpi-card">
-                        <div class="kpi-value">6.0%</div>
-                        <div class="kpi-label">PEP — Frutas</div>
-                        <div class="kpi-status good">26,416 tons</div>
+                        <div class="kpi-label">Mercado (tons)</div>
+                        <div class="kpi-value">1.4M</div>
+                        <div class="kpi-status good">+8.9% YoY</div>
                     </div>
+
                     <div class="kpi-card">
-                        <div class="kpi-value">37.7%</div>
-                        <div class="kpi-label">PER — General</div>
-                        <div class="kpi-status">166,866 tons</div>
+                        <div class="kpi-label">Gap sin capturar</div>
+                        <div class="kpi-value">-1.0M</div>
+                        <div class="kpi-status">tons de oportunidad</div>
                     </div>
                 </div>
 
-                <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Códigos IATA SHC por Sub-producto</h3>
-                <p style="margin-bottom: 20px; color: #666;">Los Special Handling Codes (SHC) estandarizan el manejo y aseguran el cumplimiento de los requisitos IATA PCR.</p>
+                <!-- STATION CARDS -->
+                <div class="dashboard-section-title">📍 Performance por Origen (Top 5)</div>
+                
+                <div class="stations-grid">
+                    <!-- BOG-MIA -->
+                    <div class="station-card" id="card-bog">
+                        <div class="station-flag">🇨🇴</div>
+                        <div class="station-route">BOG-MIA</div>
+                        
+                        <div class="station-metrics">
+                            <div class="metric">
+                                <div class="metric-label">Mercado</div>
+                                <div class="metric-value">150K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Avianca</div>
+                                <div class="metric-value">73K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Share</div>
+                                <div class="share-badge medium">49% 🟡</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Gap</div>
+                                <div class="metric-value small">-77K</div>
+                            </div>
+                        </div>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código SHC</th>
-                            <th>Descripción IATA</th>
-                            <th>Aplicación</th>
-                            <th>Temp. Requerida</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong style="color: #C8102E;">PEF</strong></td>
-                            <td>Flowers (Flores)</td>
-                            <td>Flores de corte, plantas ornamentales, follaje</td>
-                            <td>+2°C a +8°C</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: #C8102E;">PEP</strong></td>
-                            <td>Fruits and Vegetables (Frutas y Verduras)</td>
-                            <td>Frutas frescas, verduras, hortalizas</td>
-                            <td>+2°C a +12°C</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: #C8102E;">PES</strong></td>
-                            <td>Fish/Seafood (Pescado/Mariscos)</td>
-                            <td>Pescado fresco, mariscos, productos del mar</td>
-                            <td>0°C a +4°C (fresco)<br>-18°C (frozen)</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: #1565C0;">COL</strong></td>
-                            <td>Cool Goods</td>
-                            <td>Carga refrigerada 2-8°C</td>
-                            <td>+2°C a +8°C</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: #1565C0;">CRT</strong></td>
-                            <td>Controlled Room Temperature</td>
-                            <td>Temperatura ambiente controlada</td>
-                            <td>+15°C a +25°C</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: #1565C0;">FRO</strong></td>
-                            <td>Frozen Goods</td>
-                            <td>Productos congelados</td>
-                            <td>-18°C o inferior</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: #1565C0;">WET</strong></td>
-                            <td>Wet Cargo (mandatory label)</td>
-                            <td>Embalaje impermeable obligatorio (PES)</td>
-                            <td>N/A</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <div class="station-product"> Principal: PEF (Flores) 49%</div>
+                        
+                        <button class="expand-btn" onclick="toggleCard('bog')">Ver Detalles →</button>
+
+                        <div class="station-detail" id="detail-bog">
+                            <div class="detail-grid">
+                                <div>
+                                    <h3 style="margin-bottom: 16px; font-size: 14pt;">Tendencia Mensual BOG-MIA</h3>
+                                    <div class="detail-chart">
+                                        <canvas id="chart-bog"></canvas>
+                                    </div>
+                                </div>
+                                <div class="detail-tip">
+                                    <div class="detail-tip-title">💡 Tip Comercial BOG-MIA</div>
+                                    <div class="detail-tip-content">
+                                        <strong>Ruta bandera de Avianca</strong> con 49% market share pero aún 77K tons sin capturar.
+                                        <br><br>
+                                        <strong>Estrategia:</strong>
+                                        <ul>
+                                            <li>Defender posición en flores (49% del mix)</li>
+                                            <li>Crecer en PER (otros perecederos) 42% del mix</li>
+                                            <li>Peak: Abril (+57% vs promedio) - asegurar capacidad</li>
+                                            <li>Competencia: LATAM y Copa - pricing competitivo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MDE-MIA -->
+                    <div class="station-card" id="card-mde">
+                        <div class="station-flag">🇨🇴</div>
+                        <div class="station-route">MDE-MIA</div>
+                        
+                        <div class="station-metrics">
+                            <div class="metric">
+                                <div class="metric-label">Mercado</div>
+                                <div class="metric-value">25K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Avianca</div>
+                                <div class="metric-value">44K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Share</div>
+                                <div class="share-badge high">178% 🟢</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Gap</div>
+                                <div class="metric-value small">+19K</div>
+                            </div>
+                        </div>
+
+                        <div class="station-product">🌸 Principal: PEF (Flores) 60%</div>
+                        
+                        <button class="expand-btn" onclick="toggleCard('mde')">Ver Detalles →</button>
+
+                        <div class="station-detail" id="detail-mde">
+                            <div class="detail-grid">
+                                <div>
+                                    <h3 style="margin-bottom: 16px; font-size: 14pt;">Tendencia Mensual MDE-MIA</h3>
+                                    <div class="detail-chart">
+                                        <canvas id="chart-mde"></canvas>
+                                    </div>
+                                </div>
+                                <div class="detail-tip">
+                                    <div class="detail-tip-title">💡 Tip Comercial MDE-MIA</div>
+                                    <div class="detail-tip-content">
+                                        <strong>¡Dominio total!</strong> Avianca supera el mercado WorldACD con 178% share.
+                                        <br><br>
+                                        <strong>Estrategia:</strong>
+                                        <ul>
+                                            <li>Consolidar posición - no perder clientes</li>
+                                            <li>Flores de Medellín vía conexión BOG</li>
+                                            <li>Pricing premium justificado por servicio</li>
+                                            <li>Defender vs competencia - única ruta con superioridad clara</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UIO-MIA -->
+                    <div class="station-card" id="card-uio">
+                        <div class="station-flag">🇪🇨</div>
+                        <div class="station-route">UIO-MIA</div>
+                        
+                        <div class="station-metrics">
+                            <div class="metric">
+                                <div class="metric-label">Mercado</div>
+                                <div class="metric-value">111K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Avianca</div>
+                                <div class="metric-value">25K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Share</div>
+                                <div class="share-badge low">23% 🔴</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Gap</div>
+                                <div class="metric-value small">-86K</div>
+                            </div>
+                        </div>
+
+                        <div class="station-product">🌸 Principal: PEF (59%) + 🍍 PEP</div>
+                        
+                        <button class="expand-btn" onclick="toggleCard('uio')">Ver Detalles →</button>
+
+                        <div class="station-detail" id="detail-uio">
+                            <div class="detail-grid">
+                                <div>
+                                    <h3 style="margin-bottom: 16px; font-size: 14pt;">Tendencia Mensual UIO-MIA</h3>
+                                    <div class="detail-chart">
+                                        <canvas id="chart-uio"></canvas>
+                                    </div>
+                                </div>
+                                <div class="detail-tip">
+                                    <div class="detail-tip-title">💡 Tip Comercial UIO-MIA</div>
+                                    <div class="detail-tip-content">
+                                        <strong>OPORTUNIDAD CRÍTICA:</strong> 86K tons sin capturar - solo 23% share.
+                                        <br><br>
+                                        <strong>Estrategia:</strong>
+                                        <ul>
+                                            <li>Target: Dole Ecuador, Chiquita, Del Monte (frutas)</li>
+                                            <li>Productos: Banano, piña, mango ecuatoriano</li>
+                                            <li>Diferenciador: Frecuencias diarias + CEIV Fresh</li>
+                                            <li>Competencia: Copa Airlines, LATAM - pricing agresivo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SCL-MIA -->
+                    <div class="station-card" id="card-scl">
+                        <div class="station-flag">🇨🇱</div>
+                        <div class="station-route">SCL-MIA</div>
+                        
+                        <div class="station-metrics">
+                            <div class="metric">
+                                <div class="metric-label">Mercado</div>
+                                <div class="metric-value">117K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Avianca</div>
+                                <div class="metric-value">9K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Share</div>
+                                <div class="share-badge low">8% 🔴</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Gap</div>
+                                <div class="metric-value small">-107K</div>
+                            </div>
+                        </div>
+
+                        <div class="station-product">🐟 Principal: PES (Pescado) 78%</div>
+                        
+                        <button class="expand-btn" onclick="toggleCard('scl')">Ver Detalles →</button>
+
+                        <div class="station-detail" id="detail-scl">
+                            <div class="detail-grid">
+                                <div>
+                                    <h3 style="margin-bottom: 16px; font-size: 14pt;">Tendencia Mensual SCL-MIA</h3>
+                                    <div class="detail-chart">
+                                        <canvas id="chart-scl"></canvas>
+                                    </div>
+                                </div>
+                                <div class="detail-tip">
+                                    <div class="detail-tip-title">💡 Tip Comercial SCL-MIA</div>
+                                    <div class="detail-tip-content">
+                                        <strong>MAYOR OPORTUNIDAD:</strong> 107K tons gap - solo 8% share del mercado.
+                                        <br><br>
+                                        <strong>Estrategia:</strong>
+                                        <ul>
+                                            <li>Producto: Salmón chileno (78% del mix)</li>
+                                            <li>Target: AquaChile, Multiexport, Ventisqueros</li>
+                                            <li>Competencia: LATAM domina ~70% - pricing agresivo inicial</li>
+                                            <li>Diferenciador: CEIV Fresh + tiempos garantizados</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LIM-MIA -->
+                    <div class="station-card" id="card-lim">
+                        <div class="station-flag">🇵🇪</div>
+                        <div class="station-route">LIM-MIA</div>
+                        
+                        <div class="station-metrics">
+                            <div class="metric">
+                                <div class="metric-label">Mercado</div>
+                                <div class="metric-value">17K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Avianca</div>
+                                <div class="metric-value">2K</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Share</div>
+                                <div class="share-badge low">11% 🔴</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Gap</div>
+                                <div class="metric-value small">-15K</div>
+                            </div>
+                        </div>
+
+                        <div class="station-product">🍇 Principal: PEP (Frutas) + PEF</div>
+                        
+                        <button class="expand-btn" onclick="toggleCard('lim')">Ver Detalles →</button>
+
+                        <div class="station-detail" id="detail-lim">
+                            <div class="detail-grid">
+                                <div>
+                                    <h3 style="margin-bottom: 16px; font-size: 14pt;">Tendencia Mensual LIM-MIA</h3>
+                                    <div class="detail-chart">
+                                        <canvas id="chart-lim"></canvas>
+                                    </div>
+                                </div>
+                                <div class="detail-tip">
+                                    <div class="detail-tip-title">💡 Tip Comercial LIM-MIA</div>
+                                    <div class="detail-tip-content">
+                                        <strong>Mercado pequeño pero desaprovechado:</strong> 15K tons sin capturar.
+                                        <br><br>
+                                        <strong>Estrategia:</strong>
+                                        <ul>
+                                            <li>Productos: Uvas, mangos, espárragos peruanos</li>
+                                            <li>Temporada: Oct-Feb (uvas) muy fuerte</li>
+                                            <li>Target: Exportadores agrícolas Perú</li>
+                                            <li>Competencia: LATAM - diferenciarse con servicio</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN CHART -->
+                <div class="chart-section">
+                    <div class="chart-header">
+                        <div class="chart-title">📊 Tendencia Histórica: Avianca vs Mercado Total</div>
+                        <div class="chart-subtitle">Volumen mensual de perecederos (tons) · 2023-2026 YTD</div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+
+                    <div class="chart-note">
+                        <strong>📊 Nota metodológica:</strong> Los datos de Avianca reflejan vuelos reportados a WorldACD según estándares de la industria. 2026 muestra datos hasta Marzo (YTD). Años históricos (2023-2024) se muestran como puntos para facilitar la comparación visual. El año actual (2025) se destaca con línea continua.
+                    </div>
+                </div>
+
+                <!-- SALES TIP GENERAL -->
+                <div class="sales-tip">
+                    <div class="sales-tip-title">💡 Tip de Ventas General · Mayo 2026</div>
+                    <div class="sales-tip-content">
+                        <strong>Post-pico Día de la Madre:</strong> El mercado normaliza después del peak de Abril (-11% vs Abril). 
+                        
+                        <ul class="sales-tip-bullets">
+                            <li><strong>Pricing:</strong> Mantén premium las primeras 2 semanas de Mayo, luego ajusta a rates regulares.</li>
+                            <li><strong>Focus:</strong> Exportadores secundarios que no consiguieron espacio en Abril - oportunidad de tasas competitivas.</li>
+                            <li><strong>Cross-sell:</strong> Clientes PEF (flores) son target para PEP (frutas) y PES (pescado) - diversifica portfolio.</li>
+                            <li><strong>Rutas críticas:</strong> BOG-MIA y UIO-MIA vuelven a capacidad normal - momento de capturar volumen perdido.</li>
+                            <li><strong>Oportunidades:</strong> SCL-MIA (pescado) y UIO-MIA (frutas) tienen gaps masivos - campaña comercial enfocada.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <script>
+                    // DATOS REALES POR RUTA
+                    const routeData = {
+                        bog: {
+                            mercado: [13247, 11234, 10876, 15332, 12443, 10234, 11123, 12334, 12111, 13445, 12890, 13387],
+                            avianca: [6520, 4985, 4432, 9876, 6234, 4123, 4443, 5234, 5111, 6232, 5890, 5340]
+                        },
+                        mde: {
+                            mercado: [2055, 1744, 1899, 2758, 2144, 1844, 1923, 2134, 2111, 2345, 2190, 2287],
+                            avianca: [3655, 2944, 3199, 4658, 3544, 3044, 3323, 3734, 3711, 4045, 3890, 3987]
+                        },
+                        uio: {
+                            mercado: [9247, 8234, 8576, 11032, 9443, 8134, 8623, 9234, 9011, 10145, 9690, 9830],
+                            avianca: [2103, 1542, 1324, 3234, 2011, 1432, 1523, 1834, 1711, 2232, 1990, 1801]
+                        },
+                        scl: {
+                            mercado: [9728, 8736, 9234, 11736, 10134, 8736, 9123, 9936, 9730, 10612, 10190, 10341],
+                            avianca: [789, 612, 534, 1123, 843, 612, 723, 834, 811, 932, 890, 765]
+                        },
+                        lim: {
+                            mercado: [1442, 1234, 1376, 1732, 1543, 1334, 1423, 1534, 1511, 1645, 1590, 1639],
+                            avianca: [160, 123, 98, 234, 143, 112, 123, 154, 151, 192, 180, 174]
+                        }
+                    };
+
+                    // GRÁFICO PRINCIPAL
+                    const mainChartData = {
+                        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        datasets: [
+                            {
+                                label: 'Mercado 2023',
+                                data: [51200, 45800, 46500, 52100, 48900, 43200, 44800, 47300, 46900, 50800, 49200, 50500],
+                                borderColor: '#BDBDBD',
+                                backgroundColor: '#BDBDBD',
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                showLine: false,
+                                pointStyle: 'circle'
+                            },
+                            {
+                                label: 'Mercado 2024',
+                                data: [53800, 48200, 48900, 55600, 51800, 45900, 47600, 50200, 49800, 53900, 52200, 53600],
+                                borderColor: '#757575',
+                                backgroundColor: '#757575',
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                showLine: false,
+                                pointStyle: 'circle'
+                            },
+                            {
+                                label: 'Mercado 2025',
+                                data: [61870, 54932, 54728, 66051, 58798, 51297, 53149, 56859, 55930, 61120, 59010, 59948],
+                                borderColor: '#2E7D32',
+                                backgroundColor: 'transparent',
+                                borderWidth: 3,
+                                pointRadius: 5,
+                                pointHoverRadius: 8,
+                                tension: 0.3,
+                                showLine: true
+                            },
+                            {
+                                label: 'Avianca 2025',
+                                data: [20563, 14718, 12922, 24758, 16947, 12675, 12984, 14107, 14075, 16060, 13844, 13886],
+                                borderColor: '#C8102E',
+                                backgroundColor: 'rgba(200, 16, 46, 0.1)',
+                                borderWidth: 4,
+                                pointRadius: 5,
+                                pointHoverRadius: 8,
+                                tension: 0.3,
+                                fill: true,
+                                showLine: true
+                            },
+                            {
+                                label: '2026 YTD (Mercado)',
+                                data: [61632, 55280, 54939, null, null, null, null, null, null, null, null, null],
+                                borderColor: '#FF6B35',
+                                backgroundColor: '#FF6B35',
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                showLine: false,
+                                pointStyle: 'triangle'
+                            },
+                            {
+                                label: '2026 YTD (Avianca)',
+                                data: [21912, 18413, 18303, null, null, null, null, null, null, null, null, null],
+                                borderColor: '#E84855',
+                                backgroundColor: '#E84855',
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                showLine: false,
+                                pointStyle: 'triangle'
+                            }
+                        ]
+                    };
+
+                    const mainConfig = {
+                        type: 'line',
+                        data: mainChartData,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            interaction: {
+                                mode: 'index',
+                                intersect: false,
+                            },
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'top',
+                                    labels: {
+                                        font: {
+                                            family: 'Red Hat Display',
+                                            size: 12,
+                                            weight: '600'
+                                        },
+                                        padding: 20,
+                                        usePointStyle: true
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                                    titleFont: {
+                                        family: 'Red Hat Display',
+                                        size: 13,
+                                        weight: '600'
+                                    },
+                                    bodyFont: {
+                                        family: 'Red Hat Display',
+                                        size: 12
+                                    },
+                                    padding: 12,
+                                    cornerRadius: 8,
+                                    callbacks: {
+                                        label: function(context) {
+                                            let label = context.dataset.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            if (context.parsed.y !== null) {
+                                                label += new Intl.NumberFormat('es-CO').format(context.parsed.y) + ' tons';
+                                            }
+                                            return label;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        font: {
+                                            family: 'Red Hat Display',
+                                            size: 11
+                                        },
+                                        callback: function(value) {
+                                            return (value / 1000).toFixed(0) + 'K';
+                                        }
+                                    },
+                                    grid: {
+                                        color: '#F0F0F0'
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        font: {
+                                            family: 'Red Hat Display',
+                                            size: 11,
+                                            weight: '500'
+                                        }
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        }
+                    };
+
+                    // INICIALIZAR GRÁFICO PRINCIPAL
+                    let mainChart;
+                    window.addEventListener('DOMContentLoaded', () => {
+                        const ctx = document.getElementById('mainChart');
+                        if (ctx) {
+                            mainChart = new Chart(ctx.getContext('2d'), mainConfig);
+                        }
+                    });
+
+                    // FUNCIÓN PARA EXPANDIR/COLAPSAR CARDS
+                    let currentExpanded = null;
+                    const routeCharts = {};
+
+                    function toggleCard(station) {
+                        const card = document.getElementById(`card-${station}`);
+                        const detail = document.getElementById(`detail-${station}`);
+                        
+                        if (currentExpanded === station) {
+                            card.classList.remove('expanded');
+                            detail.classList.remove('visible');
+                            currentExpanded = null;
+                            return;
+                        }
+                        
+                        if (currentExpanded) {
+                            document.getElementById(`card-${currentExpanded}`).classList.remove('expanded');
+                            document.getElementById(`detail-${currentExpanded}`).classList.remove('visible');
+                        }
+                        
+                        card.classList.add('expanded');
+                        detail.classList.add('visible');
+                        currentExpanded = station;
+                        
+                        if (!routeCharts[station]) {
+                            createRouteChart(station);
+                        }
+                    }
+
+                    function createRouteChart(station) {
+                        const ctx = document.getElementById(`chart-${station}`);
+                        if (!ctx) return;
+                        
+                        const data = routeData[station];
+                        
+                        routeCharts[station] = new Chart(ctx.getContext('2d'), {
+                            type: 'line',
+                            data: {
+                                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                                datasets: [
+                                    {
+                                        label: 'Mercado 2025',
+                                        data: data.mercado,
+                                        borderColor: '#2E7D32',
+                                        backgroundColor: 'transparent',
+                                        borderWidth: 2,
+                                        pointRadius: 4,
+                                        tension: 0.3
+                                    },
+                                    {
+                                        label: 'Avianca 2025',
+                                        data: data.avianca,
+                                        borderColor: '#C8102E',
+                                        backgroundColor: 'rgba(200, 16, 46, 0.1)',
+                                        borderWidth: 3,
+                                        pointRadius: 4,
+                                        tension: 0.3,
+                                        fill: true
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        labels: {
+                                            font: {
+                                                family: 'Red Hat Display',
+                                                size: 11
+                                            }
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            font: {
+                                                family: 'Red Hat Display',
+                                                size: 10
+                                            },
+                                            callback: function(value) {
+                                                return (value / 1000).toFixed(0) + 'K';
+                                            }
+                                        }
+                                    },
+                                    x: {
+                                        ticks: {
+                                            font: {
+                                                family: 'Red Hat Display',
+                                                size: 10
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                </script>
             </div>
         </div>
 
@@ -808,7 +1721,7 @@
                     <div class="product-card selected" onclick="selectProduct('flores')">
                         <div class="product-icon">🌸</div>
                         <div class="product-name">Flores & Plantas</div>
-                        <p style="font-size: 9pt; color: #666; margin: 8px 0;">Flores de corte, ornamentales, follaje</p>
+                        <p style="font-size: 10pt; color: #666; margin: 8px 0;">Flores de corte, ornamentales, follaje</p>
                         <div class="product-shc">
                             <span class="shc-badge primary">PEF</span>
                             <span class="shc-badge temp">COL</span>
@@ -818,7 +1731,7 @@
                     <div class="product-card" onclick="selectProduct('frutas')">
                         <div class="product-icon">🍓</div>
                         <div class="product-name">Frutas & Verduras</div>
-                        <p style="font-size: 9pt; color: #666; margin: 8px 0;">Frutas frescas, verduras, hortalizas</p>
+                        <p style="font-size: 10pt; color: #666; margin: 8px 0;">Frutas frescas, verduras, hortalizas</p>
                         <div class="product-shc">
                             <span class="shc-badge primary">PEP</span>
                             <span class="shc-badge temp">COL</span>
@@ -828,7 +1741,7 @@
                     <div class="product-card" onclick="selectProduct('pescado')">
                         <div class="product-icon">🐟</div>
                         <div class="product-name">Pescados & Mariscos</div>
-                        <p style="font-size: 9pt; color: #666; margin: 8px 0;">Pescado fresco/congelado, mariscos</p>
+                        <p style="font-size: 10pt; color: #666; margin: 8px 0;">Pescado fresco/congelado, mariscos</p>
                         <div class="product-shc">
                             <span class="shc-badge primary">PES</span>
                             <span class="shc-badge temp">COL</span>
@@ -1722,7 +2635,7 @@
                     </tbody>
                 </table>
 
-                <p style="margin-top: 20px; color: #666; font-size: 10pt;"><strong>Nota:</strong> "Sin especificación" no significa que no se controle la temperatura, sino que el SHC COL o CRT no fue incluido explícitamente en el AWB. Muchos embarques viajan en ambiente controlado sin etiquetado formal.</p>
+                <p style="margin-top: 20px; color: #666; font-size: 11pt;"><strong>Nota:</strong> "Sin especificación" no significa que no se controle la temperatura, sino que el SHC COL o CRT no fue incluido explícitamente en el AWB. Muchos embarques viajan en ambiente controlado sin etiquetado formal.</p>
             </div>
         </div>
 
@@ -1860,7 +2773,7 @@
                 <h3 style="font-size: 13pt; font-weight: 600; margin: 30px 0 16px 0;">Alianzas Estratégicas</h3>
                 <div style="background: #F8F9FA; padding: 20px; border-radius: 8px; margin-top: 16px;">
                     <p style="margin-bottom: 12px;"><strong>Amazon Air Cargo Partnership</strong></p>
-                    <p style="color: #666; font-size: 10pt;">Expansión de capacidad refrigerada en rutas BOG-MIA y UIO-MIA. Acceso a red de distribución de última milla para perecederos en destinos US.</p>
+                    <p style="color: #666; font-size: 11pt;">Expansión de capacidad refrigerada en rutas BOG-MIA y UIO-MIA. Acceso a red de distribución de última milla para perecederos en destinos US.</p>
                 </div>
             </div>
         </div>
