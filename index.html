@@ -27,47 +27,54 @@
         }
 
         /* HEADER */
-        .header {
-            background: linear-gradient(135deg, #C8102E 0%, #A00D25 100%);
-            color: white;
-            padding: 50px 40px;
-            margin: -40px -30px 40px -30px;
-            border-bottom: 5px solid #8B0A1F;
-        }
+.header {
+    background: linear-gradient(135deg, rgba(200,16,46,0.95) 0%, rgba(160,13,37,0.95) 100%),
+                url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600&q=80') center/cover;
+    color: white;
+    padding: 80px 40px;
+    margin: -40px -30px 40px -30px;
+    border-bottom: 5px solid #8B0A1F;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 1;
+}
 
-        .header-icon {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            flex-shrink: 0;
-        }
+.header-content-centered {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+}
 
-        .header-text h1 {
-            font-size: 32pt;
-            font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
+.header-icon-fresh {
+    margin: 0 auto 20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255,255,255,0.3);
+}
 
-        .header-text p {
-            font-size: 12pt;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-
+.header-icon-fresh svg {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+        
         .badges {
             display: flex;
             gap: 10px;
